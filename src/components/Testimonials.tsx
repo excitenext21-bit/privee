@@ -138,32 +138,36 @@ export const Testimonials: React.FC = () => {
             <div className="md:col-span-6 flex flex-col justify-center max-w-md mx-auto md:mx-0 md:pl-6 pt-10 sm:pt-14 md:pt-20">
               <h3
                 style={{
-                  fontFamily: "'Cormorant Garamond', 'Didot', 'Playfair Display', serif",
-                  color: 'rgba(153,152,148,1)',
-                  lineHeight: 1.2,
-                  fontSize: '30px',
                   letterSpacing: '0.02em',
+                  fontSize: '30px',
+                  fontFamily: "'Cormorant Garamond', serif",
                   fontWeight: 400,
                   fontStyle: 'normal',
+                  color: 'rgba(153, 152, 148, 1)',
+                  lineHeight: 1.2,
                   ...getStyleObject(testimonials.headingStyle)
                 }}
                 className="text-left mb-4"
               >
-                {testimonials.sectionHeading}
+                This is <i style={{ fontStyle: 'italic', fontFamily: "'Cormorant Garamond', serif" }}>your</i> moment.
               </h3>
 
               <div className="text-right w-full">
                 <p
                   style={{
-                    color: 'rgba(153,152,148,0.95)',
-                    letterSpacing: '0.22em',
-                    lineHeight: '1.7'
+                    textTransform: 'uppercase',
+                    lineHeight: 1.8,
+                    letterSpacing: '0.1em',
+                    fontSize: '14px',
+                    textAlign: 'right',
+                    fontFamily: "'Karla', sans-serif",
+                    fontWeight: 400,
+                    fontStyle: 'normal',
+                    color: 'rgba(153, 152, 148, 1)'
                   }}
-                  className="text-[11px] sm:text-xs uppercase font-sans font-normal"
+                  className="w-full"
                 >
-                  WE SIMPLY MAKE IT WHAT YOU’VE
-                  <br />
-                  ALWAYS DREAMT IT WOULD BE.
+                  We simply make it what you’ve always dreamt it would be.
                 </p>
               </div>
             </div>

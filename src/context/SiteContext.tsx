@@ -201,9 +201,9 @@ export const INITIAL_SITE_DATA: SiteData = {
     imageUrl: testimonialsPriveeMagazine,
     items: TESTIMONIALS,
     headingStyle: {
-      fontSize: '45px',
+      fontSize: '30px',
       fontWeight: '400',
-      fontColor: 'rgba(153,152,148,1)',
+      fontColor: 'rgba(153, 152, 148, 1)',
       textDecoration: 'none',
       fontStyle: 'normal'
     },
@@ -429,8 +429,15 @@ function migrateSiteData(raw: any): SiteData {
     if (copy.testimonials.quoteStyle) {
       copy.testimonials = { ...copy.testimonials, quoteStyle: sanitizeStyle(copy.testimonials.quoteStyle) };
     }
-    if (copy.testimonials.headingStyle && isDarkColor(copy.testimonials.headingStyle.fontColor)) {
-      copy.testimonials = { ...copy.testimonials, headingStyle: sanitizeStyle(copy.testimonials.headingStyle) };
+    if (copy.testimonials.headingStyle && (copy.testimonials.headingStyle.fontSize === '45px' || isDarkColor(copy.testimonials.headingStyle.fontColor))) {
+      copy.testimonials = {
+        ...copy.testimonials,
+        headingStyle: {
+          ...sanitizeStyle(copy.testimonials.headingStyle),
+          fontSize: '30px',
+          fontColor: 'rgba(153, 152, 148, 1)'
+        }
+      };
     }
   }
 
