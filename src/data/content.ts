@@ -146,7 +146,7 @@ export const PROCESS_STEPS: ProcessStep[] = [
   {
     number: "02",
     title: "CONCEPT & CURATION",
-    description: "Translating feeling into visual form, we develop tailored color palettes, mood textures, lighting plans, and architectural spatial flow."
+    description: "Translating feeling into visual form, we develop tailored color palettes, mood textures, lighting plans, and architectural spatial flow in 3D concept."
   },
   {
     number: "03",

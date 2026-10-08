@@ -442,6 +442,22 @@ function migrateSiteData(raw: any): SiteData {
   }
 
   if (copy.process) {
+    if (copy.process.steps) {
+      copy.process.steps = copy.process.steps.map((step: any) => {
+        if (
+          (step.number === '02' || step.title?.includes('CONCEPT & CURATION')) &&
+          step.description &&
+          !step.description.includes('in 3D concept')
+        ) {
+          return {
+            ...step,
+            description:
+              'Translating feeling into visual form, we develop tailored color palettes, mood textures, lighting plans, and architectural spatial flow in 3D concept.'
+          };
+        }
+        return step;
+      });
+    }
     if (copy.process.stepTitleStyle) {
       copy.process = { ...copy.process, stepTitleStyle: sanitizeStyle(copy.process.stepTitleStyle) };
     }

@@ -167,7 +167,9 @@ export const Testimonials: React.FC = () => {
                   }}
                   className="w-full"
                 >
-                  We simply make it what you’ve always dreamt it would be.
+                  We simply make it what you’ve
+                  <br />
+                  always dreamt it would be.
                 </p>
               </div>
             </div>
