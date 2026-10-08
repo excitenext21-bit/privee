@@ -101,7 +101,7 @@ export const Testimonials: React.FC = () => {
                       fontWeight: 400,
                       fontStyle: 'normal'
                     }}
-                    className="mb-6"
+                    className="mb-6 whitespace-pre-line"
                   >
                     {activeTestimonial.detailedQuote || activeTestimonial.quote}
                   </p>
