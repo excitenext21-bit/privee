@@ -521,6 +521,13 @@ function migrateSiteData(raw: any): SiteData {
   }
 
   if (copy.portfolio) {
+    const hasOldItems = copy.portfolio.items?.some((i: any) =>
+      ['p1', 'p2', 'p3', 'p4', 'p5', 'p6'].includes(i.id) ||
+      (i.image && i.image.includes('unsplash.com'))
+    );
+    if (!copy.portfolio.items || copy.portfolio.items.length === 0 || hasOldItems) {
+      copy.portfolio.items = PORTFOLIO_ITEMS.map((item) => ({ ...item, grayscale: false }));
+    }
     if (copy.portfolio.titleStyle && isDarkColor(copy.portfolio.titleStyle.fontColor)) {
       copy.portfolio = { ...copy.portfolio, titleStyle: sanitizeStyle(copy.portfolio.titleStyle) };
     }

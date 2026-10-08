@@ -36,58 +36,139 @@ export const VIKRANTT_CONTENT = {
 
 export const PORTFOLIO_ITEMS: PortfolioItem[] = [
   {
-    id: "p1",
-    title: "SAN YSIDRO RANCH",
-    category: "Montecito",
-    image: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1200",
-    location: "MONTECITO",
-    description: "An ethereal garden wedding surrounded by lush Montecito foothills, sheer linen draping, and golden hour florals.",
-    year: "2025"
-  },
-  {
-    id: "p2",
-    title: "GLEN OAKS",
-    category: "Big Sur",
-    image: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80&w=1200",
-    location: "BIG SUR",
-    description: "Serene fireside celebration nestled among ancient coastal redwoods with fine art botanical tablescapes.",
-    year: "2025"
-  },
-  {
-    id: "p3",
-    title: "SUNSTONE VILLA",
-    category: "Santa Ynez",
-    image: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80&w=1200",
-    location: "SANTA YNEZ",
-    description: "An Old-World architectural masterpiece with French limestone, vineyard views, and candlelight soirée.",
+    id: "port-01",
+    title: "MANDAP OPULENCE",
+    category: "Destination Wedding",
+    image: "/portfolio/portfolio_01.jpg",
+    location: "GOA",
+    description: "Architectural mandap structure with bespoke floral ombre canopy and panoramic coastal views.",
     year: "2026"
   },
   {
-    id: "p4",
-    title: "PRIVATE ESTATE",
-    category: "Ojai",
-    image: "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&q=80&w=1200",
-    location: "OJAI",
-    description: "Artful private estate celebration blending rustic California charm with refined, modern luxury details.",
-    year: "2025"
-  },
-  {
-    id: "p5",
-    title: "MALIBU PRIVATE ESTATE",
-    category: "Malibu",
-    image: "https://images.unsplash.com/photo-1469371670807-013ccf25f16a?auto=format&fit=crop&q=80&w=1200",
-    location: "MALIBU",
-    description: "Oceanfront estate celebration with minimalist coastal decor, crystal stemware, and sunset views.",
+    id: "port-02",
+    title: "ROYAL AISLE COUTURE",
+    category: "Palace Celebration",
+    image: "/portfolio/portfolio_02.jpg",
+    location: "UDAIPUR",
+    description: "Sculpted floral runner and classical colonnade framing an intimate ceremony soirée.",
     year: "2026"
   },
   {
-    id: "p6",
-    title: "LAKE COMO CONSERVATORY",
-    category: "Lake Como",
-    image: "https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&q=80&w=1200",
-    location: "LAKE COMO",
-    description: "Sweeping glasshouse reception with suspended greenery, velvet dining chairs, and bespoke ambient lighting.",
-    year: "2025"
+    id: "port-03",
+    title: "ETHEREAL CANOPY",
+    category: "Luxury Decor",
+    image: "/portfolio/portfolio_03.jpg",
+    location: "JAIPUR",
+    description: "Suspended botanical cloud in soft pastel tones, illuminated by ambient candlelit radiance.",
+    year: "2026"
+  },
+  {
+    id: "port-04",
+    title: "COUTURE FLORAL ARCH",
+    category: "Signature Ceremony",
+    image: "/portfolio/portfolio_04.jpg",
+    location: "MUMBAI",
+    description: "Cascading ombré gypsophila and delicate roses framing the sacred wedding vows.",
+    year: "2026"
+  },
+  {
+    id: "port-05",
+    title: "SANCTUARY OF ART",
+    category: "Bespoke Styling",
+    image: "/portfolio/portfolio_05.jpg",
+    location: "DELHI",
+    description: "Immaculately curated floral installations bringing architectural grandeur to life.",
+    year: "2026"
+  },
+  {
+    id: "port-06",
+    title: "TIMELESS GRANDEUR",
+    category: "Grand Celebration",
+    image: "/portfolio/portfolio_06.jpg",
+    location: "GOA",
+    description: "A harmonious blend of contemporary spatial flow and traditional ceremonial elegance.",
+    year: "2026"
+  },
+  {
+    id: "port-07",
+    title: "CELESTIAL BLOOMS",
+    category: "Fine Art Wedding",
+    image: "/portfolio/portfolio_07.jpg",
+    location: "UDAIPUR",
+    description: "Volumetric floral arrangements and bespoke candelabras creating an enchanting atmosphere.",
+    year: "2026"
+  },
+  {
+    id: "port-08",
+    title: "PALATIAL EVENING",
+    category: "Luxury Reception",
+    image: "/portfolio/portfolio_08.jpg",
+    location: "JAIPUR",
+    description: "Dramatic ambient lighting and tailored textures curated for an unforgettable celebration.",
+    year: "2026"
+  },
+  {
+    id: "port-09",
+    title: "HARMONIOUS SYMPHONY",
+    category: "Destination Wedding",
+    image: "/portfolio/portfolio_09.jpg",
+    location: "KERALA",
+    description: "Soft textural palettes and natural floral scents creating sensory wonder for every guest.",
+    year: "2026"
+  },
+  {
+    id: "port-10",
+    title: "POETIC DETAILS",
+    category: "Artisanal Decor",
+    image: "/portfolio/portfolio_10.jpg",
+    location: "MUMBAI",
+    description: "Meticulously styled stationery, custom linen swatches, and artisan craftsmanship.",
+    year: "2026"
+  },
+  {
+    id: "port-11",
+    title: "BOTANICAL DREAMSCAPE",
+    category: "Couture Design",
+    image: "/portfolio/portfolio_11.jpg",
+    location: "DELHI",
+    description: "Textured floral tapestry and custom designed spatial elements tailored for modern tastemakers.",
+    year: "2026"
+  },
+  {
+    id: "port-12",
+    title: "AESTHETIC SERENITY",
+    category: "Intimate Gathering",
+    image: "/portfolio/portfolio_12.jpg",
+    location: "GOA",
+    description: "Understated luxury where modern minimalism meets timeless celebration warmth.",
+    year: "2026"
+  },
+  {
+    id: "port-13",
+    title: "CONTEMPORARY CHIC",
+    category: "Modern Glamour",
+    image: "/portfolio/portfolio_13.jpg",
+    location: "BANGALORE",
+    description: "Crisp architectural lines, sculptural florals, and high-fashion celebration styling.",
+    year: "2026"
+  },
+  {
+    id: "port-14",
+    title: "VINTAGE SPLENDOR",
+    category: "Heritage Venue",
+    image: "/portfolio/portfolio_14.jpg",
+    location: "JAIPUR",
+    description: "Rich layered fabrics, antique brass accents, and evocative floral compositions.",
+    year: "2026"
+  },
+  {
+    id: "port-15",
+    title: "ENCHANTED FINALE",
+    category: "After Party Soirée",
+    image: "/portfolio/portfolio_15.jpg",
+    location: "UDAIPUR",
+    description: "A magical twilight ambiance celebrating romance, art, and unforgettable memories.",
+    year: "2026"
   }
 ];
 
