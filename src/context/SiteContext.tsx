@@ -235,24 +235,24 @@ export const INITIAL_SITE_DATA: SiteData = {
     }
   },
   contact: {
-    heading: "Let's make your day\na pure dream –\nEven better than you imagined\nit could be",
+    heading: "Let’s make your day\na pure dream–\nEven better than you imagined\nit could be",
     introText: "Reach out and share a few details about your day and we'll be in touch to book a complimentary consultation.\n\nThank you — we look forward to hearing from you!",
     imageUrl: contactMandapCouple,
-    email: 'nina@ninamoore.com',
-    phone: '(805) 881-8167',
-    address: 'California – New York & Destination',
+    email: 'info@designprivee.com',
+    phone: '+91 98906 00039',
+    address: '',
     instagramUrl: 'https://instagram.com',
     headingStyle: {
       fontSize: '18px',
       fontWeight: '400',
-      fontColor: '#8A8487',
+      fontColor: 'rgba(0, 0, 0, 0.5)',
       textDecoration: 'none',
       fontStyle: 'normal'
     },
     introStyle: {
-      fontSize: '13.5px',
+      fontSize: '14px',
       fontWeight: '400',
-      fontColor: '#807C81',
+      fontColor: 'rgba(0, 0, 0, 0.65)',
       textDecoration: 'none',
       fontStyle: 'normal'
     }
@@ -454,31 +454,25 @@ function migrateSiteData(raw: any): SiteData {
     if (!copy.contact.imageUrl || copy.contact.imageUrl.includes('photo-1519741497674')) {
       copy.contact = { ...copy.contact, imageUrl: contactMandapCouple };
     }
-    if (!copy.contact.heading || copy.contact.heading === 'CONTACT US' || copy.contact.heading.includes('CONTACT US')) {
-      copy.contact.heading = "Let's make your day\na pure dream –\nEven better than you imagined\nit could be";
+    if (!copy.contact.heading || copy.contact.heading === 'CONTACT US' || copy.contact.heading.includes('CONTACT US') || copy.contact.heading.includes("Let's make your day")) {
+      copy.contact.heading = "Let’s make your day\na pure dream–\nEven better than you imagined\nit could be";
     }
     if (!copy.contact.introText || copy.contact.introText.includes('We look forward to discussing your upcoming celebration')) {
       copy.contact.introText = "Reach out and share a few details about your day and we'll be in touch to book a complimentary consultation.\n\nThank you — we look forward to hearing from you!";
     }
-    if (!copy.contact.email || copy.contact.email === 'info@designprivee.com') {
-      copy.contact.email = 'nina@ninamoore.com';
-    }
-    if (!copy.contact.phone || copy.contact.phone === '+91 98906 00039') {
-      copy.contact.phone = '(805) 881-8167';
-    }
-    if (!copy.contact.address || copy.contact.address.includes('New Delhi')) {
-      copy.contact.address = 'California – New York & Destination';
-    }
+    copy.contact.email = 'info@designprivee.com';
+    copy.contact.phone = '+91 98906 00039';
+    copy.contact.address = '';
     if (copy.contact.introStyle) {
       copy.contact = { ...copy.contact, introStyle: sanitizeStyle(copy.contact.introStyle) };
     }
-    if (copy.contact.headingStyle && (isDarkColor(copy.contact.headingStyle.fontColor) || copy.contact.headingStyle.fontSize === '45px')) {
+    if (copy.contact.headingStyle) {
       copy.contact = {
         ...copy.contact,
         headingStyle: {
           ...sanitizeStyle(copy.contact.headingStyle),
           fontSize: '18px',
-          fontColor: '#8A8487'
+          fontColor: 'rgba(0, 0, 0, 0.5)'
         }
       };
     }

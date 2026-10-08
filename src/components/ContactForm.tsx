@@ -83,25 +83,26 @@ export const ContactForm: React.FC = () => {
             <div className="w-full max-w-[440px] lg:max-w-[480px] mb-8 sm:mb-12 text-center">
               <div
                 style={{
-                  color: '#8A8487',
-                  lineHeight: 1.65,
-                  letterSpacing: '0.01em',
+                  color: 'rgba(0, 0, 0, 0.5)',
+                  lineHeight: 1.8,
+                  letterSpacing: '0.02em',
                   fontSize: '18px',
                   textAlign: 'center',
-                  fontFamily: "'Nanum Myeongjo', 'Cormorant Garamond', serif",
+                  fontFamily: "'Nanum Myeongjo', serif",
                   fontWeight: 400,
+                  fontStyle: 'normal',
                   ...getStyleObject(contact.headingStyle)
                 }}
                 className="mx-auto"
               >
-                {contact.heading && !contact.heading.includes("Let's make your day") ? (
+                {contact.heading && !contact.heading.includes("Let's make your day") && !contact.heading.includes("Let’s make your day") ? (
                   <p className="whitespace-pre-line">{contact.heading}</p>
                 ) : (
                   <>
-                    <p>Let's make your day</p>
-                    <p className="italic font-serif">a pure dream –</p>
-                    <p>Even better than you imagined</p>
-                    <p className="italic font-serif">it could be</p>
+                    <p style={{ fontSize: '18px', fontStyle: 'normal', fontFamily: "'Nanum Myeongjo', serif" }}>Let’s make your day</p>
+                    <p style={{ fontSize: '18px', fontStyle: 'italic', fontFamily: "'Nanum Myeongjo', serif" }}>a pure dream–</p>
+                    <p style={{ fontSize: '18px', fontStyle: 'normal', fontFamily: "'Nanum Myeongjo', serif" }}>Even better than you imagined</p>
+                    <p style={{ fontSize: '18px', fontStyle: 'italic', fontFamily: "'Nanum Myeongjo', serif" }}>it could be</p>
                   </>
                 )}
               </div>
@@ -121,35 +122,32 @@ export const ContactForm: React.FC = () => {
               {/* Contact Details beside photo on desktop, below on mobile */}
               <div
                 style={{
-                  fontFamily: "'Nanum Myeongjo', 'Cormorant Garamond', serif",
-                  color: '#898284',
-                  fontSize: '12px',
-                  lineHeight: 1.65
+                  fontFamily: "'Nanum Myeongjo', serif",
+                  color: 'rgba(0, 0, 0, 0.65)',
+                  fontSize: '13px',
+                  lineHeight: 1.8
                 }}
                 className="lg:absolute lg:left-full lg:ml-6 lg:bottom-1 w-auto min-w-[240px] text-left mt-6 lg:mt-0 z-10"
               >
                 <p>
                   E:{' '}
                   <a
-                    href={`mailto:${contact.email || 'nina@ninamoore.com'}`}
-                    className="hover:text-[#5E5952] transition-colors cursor-pointer"
-                    title={`Email ${contact.email || 'nina@ninamoore.com'}`}
+                    href={`mailto:${contact.email || 'info@designprivee.com'}`}
+                    className="hover:text-black transition-colors cursor-pointer"
+                    title={`Email ${contact.email || 'info@designprivee.com'}`}
                   >
-                    {contact.email || 'nina@ninamoore.com'}
+                    {contact.email || 'info@designprivee.com'}
                   </a>
                 </p>
                 <p>
                   P:{' '}
                   <a
-                    href={`tel:${(contact.phone || '(805) 881-8167').replace(/[^+\d]/g, '')}`}
-                    className="hover:text-[#5E5952] transition-colors cursor-pointer"
-                    title={`Call ${contact.phone || '(805) 881-8167'}`}
+                    href={`tel:${(contact.phone || '+91 98906 00039').replace(/\s+/g, '')}`}
+                    className="hover:text-black transition-colors cursor-pointer"
+                    title={`Call ${contact.phone || '+91 98906 00039'}`}
                   >
-                    {contact.phone || '(805) 881-8167'}
+                    {contact.phone || '+91 98906 00039'}
                   </a>
-                </p>
-                <p className="mt-3.5 text-[#898284]">
-                  {contact.address || 'California – New York & Destination'}
                 </p>
               </div>
             </div>
@@ -163,10 +161,10 @@ export const ContactForm: React.FC = () => {
             <div className="mb-7 text-left">
               <div
                 style={{
-                  fontFamily: "'Nanum Myeongjo', 'Cormorant Garamond', serif",
-                  color: '#807C81',
-                  fontSize: '13.5px',
-                  lineHeight: 1.65,
+                  fontFamily: "'Nanum Myeongjo', serif",
+                  color: 'rgba(0, 0, 0, 0.65)',
+                  fontSize: '14px',
+                  lineHeight: 1.7,
                   ...getStyleObject(contact.introStyle)
                 }}
                 className="space-y-3"
@@ -175,11 +173,11 @@ export const ContactForm: React.FC = () => {
                   <p className="whitespace-pre-line">{contact.introText}</p>
                 ) : (
                   <>
-                    <p>
+                    <p style={{ fontSize: '14px' }}>
                       Reach out and share a few details about your day and we'll be in touch to book a complimentary consultation.
                     </p>
-                    <p>
-                      <span className="italic font-serif">Thank you</span> — we look forward to hearing from you!
+                    <p style={{ fontSize: '14px' }}>
+                      <span style={{ fontStyle: 'italic', fontSize: '14px', fontFamily: "'Nanum Myeongjo', serif" }}>Thank you</span> — we look forward to hearing from you!
                     </p>
                   </>
                 )}
@@ -216,11 +214,14 @@ export const ContactForm: React.FC = () => {
                   <label
                     style={{
                       textTransform: 'uppercase',
-                      letterSpacing: '0.18em',
-                      fontSize: '10.5px',
+                      lineHeight: 1.8,
+                      letterSpacing: '0.1em',
+                      fontSize: '14px',
+                      textAlign: 'left',
                       fontFamily: "'Karla', sans-serif",
-                      color: '#A6A199',
-                      fontWeight: 400
+                      fontWeight: 400,
+                      fontStyle: 'normal',
+                      color: 'rgba(0, 0, 0, 0.5)'
                     }}
                     className="block mb-1"
                   >
@@ -241,11 +242,14 @@ export const ContactForm: React.FC = () => {
                   <label
                     style={{
                       textTransform: 'uppercase',
-                      letterSpacing: '0.18em',
-                      fontSize: '10.5px',
+                      lineHeight: 1.8,
+                      letterSpacing: '0.1em',
+                      fontSize: '14px',
+                      textAlign: 'left',
                       fontFamily: "'Karla', sans-serif",
-                      color: '#A6A199',
-                      fontWeight: 400
+                      fontWeight: 400,
+                      fontStyle: 'normal',
+                      color: 'rgba(0, 0, 0, 0.5)'
                     }}
                     className="block mb-1"
                   >
@@ -266,11 +270,14 @@ export const ContactForm: React.FC = () => {
                   <label
                     style={{
                       textTransform: 'uppercase',
-                      letterSpacing: '0.18em',
-                      fontSize: '10.5px',
+                      lineHeight: 1.8,
+                      letterSpacing: '0.1em',
+                      fontSize: '14px',
+                      textAlign: 'left',
                       fontFamily: "'Karla', sans-serif",
-                      color: '#A6A199',
-                      fontWeight: 400
+                      fontWeight: 400,
+                      fontStyle: 'normal',
+                      color: 'rgba(0, 0, 0, 0.5)'
                     }}
                     className="block mb-1"
                   >
@@ -290,11 +297,14 @@ export const ContactForm: React.FC = () => {
                   <label
                     style={{
                       textTransform: 'uppercase',
-                      letterSpacing: '0.18em',
-                      fontSize: '10.5px',
+                      lineHeight: 1.8,
+                      letterSpacing: '0.1em',
+                      fontSize: '14px',
+                      textAlign: 'left',
                       fontFamily: "'Karla', sans-serif",
-                      color: '#A6A199',
-                      fontWeight: 400
+                      fontWeight: 400,
+                      fontStyle: 'normal',
+                      color: 'rgba(0, 0, 0, 0.5)'
                     }}
                     className="block mb-1"
                   >
@@ -314,11 +324,14 @@ export const ContactForm: React.FC = () => {
                   <label
                     style={{
                       textTransform: 'uppercase',
-                      letterSpacing: '0.18em',
-                      fontSize: '10.5px',
+                      lineHeight: 1.8,
+                      letterSpacing: '0.1em',
+                      fontSize: '14px',
+                      textAlign: 'left',
                       fontFamily: "'Karla', sans-serif",
-                      color: '#A6A199',
-                      fontWeight: 400
+                      fontWeight: 400,
+                      fontStyle: 'normal',
+                      color: 'rgba(0, 0, 0, 0.5)'
                     }}
                     className="block mb-1"
                   >
@@ -338,11 +351,14 @@ export const ContactForm: React.FC = () => {
                   <label
                     style={{
                       textTransform: 'uppercase',
-                      letterSpacing: '0.18em',
-                      fontSize: '10.5px',
+                      lineHeight: 1.8,
+                      letterSpacing: '0.1em',
+                      fontSize: '14px',
+                      textAlign: 'left',
                       fontFamily: "'Karla', sans-serif",
-                      color: '#A6A199',
-                      fontWeight: 400
+                      fontWeight: 400,
+                      fontStyle: 'normal',
+                      color: 'rgba(0, 0, 0, 0.5)'
                     }}
                     className="block mb-1"
                   >
@@ -362,11 +378,14 @@ export const ContactForm: React.FC = () => {
                   <label
                     style={{
                       textTransform: 'uppercase',
-                      letterSpacing: '0.18em',
-                      fontSize: '10.5px',
+                      lineHeight: 1.8,
+                      letterSpacing: '0.1em',
+                      fontSize: '14px',
+                      textAlign: 'left',
                       fontFamily: "'Karla', sans-serif",
-                      color: '#A6A199',
-                      fontWeight: 400
+                      fontWeight: 400,
+                      fontStyle: 'normal',
+                      color: 'rgba(0, 0, 0, 0.5)'
                     }}
                     className="block mb-2"
                   >
