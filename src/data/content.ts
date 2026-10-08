@@ -12,8 +12,8 @@ export const BRAND_INFO = {
 };
 
 export const APPROACH_CONTENT = {
-  heading: "Timeless design with a contemporary edge and unwavering flawless execution",
-  subheading: "For thoughtful tastemakers & dreamers",
+  heading: "Timeless design with a contemporary\nedge and unwavering flawless execution",
+  subheading: "",
   paragraph: "Every exceptional event begins with a feeling. From quiet, intimate celebrations to breathtaking weddings. We pour heart and artistry into design. Our commitment is to breathe life into your personal vision, crafting an unforgettable experience that lingers beautifully in the hearts of your guests forever.",
   ctaText: "DETAILS, PLEASE"
 };
@@ -25,7 +25,11 @@ export const VIKRANTT_CONTENT = {
   quoteAesthete: "I'm an aesthete at heart. I find inspiration in architecture, nature, travel, art, and cultures across the world. Every journey I take adds a new perspective that eventually finds its way into my designs.",
   quotePhilosophy: "My philosophy is simple: deliver exactly what is promised—and then exceed expectations.",
   quoteTrust: "Trust is the foundation of every project I take on, and ensuring that every couple feels confident, heard, and excited throughout the journey is just as important as the final design itself.",
-  bioHighlight: "Vikrantt draws on years of experience in the event planning industry, creating unique gatherings for once in a lifetime memories.",
+  bioHighlight: "Vikrantt draws on years of experience in destination wedding designing & decor, creating <i>unique experiences</i> for once in a <i>lifetime memories</i>",
+  modalBioTitle: "VIKRANTT",
+  modalBioSubtitle: "Founder & Creative Director",
+  modalBioParagraph1: "Vikrantt is artistic by nature. He creates impeccable events filled with the unexpected and attention to every sensory encounter. He selects and directs color palette, texture, lighting, organic elements, culinary cuisine and the melodic theme of the music. His events are truly magical settings where conversations and interactions are born within the elements of the ambiance for an unforgettable experience.",
+  modalBioParagraph2: "Vikrantt is the creative director of each event using his experience and knowledge to source design elements that fit the vision and personalities of his clients. Much of his time is spent curating design boards and color palettes, selecting linen and stationery swatches, and showcasing mock-up tablescapes for client presentations. From an initial phone call to a wedding-day install, creating flatlays, day-of styling, Vikrantt is hands-on with all creative aspects.",
   imageVikrantt: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=900", // Refined creative director photo
   imageDog: "https://images.unsplash.com/photo-1534361960057-19889db9621e?auto=format&fit=crop&q=80&w=900" // Dog portrait matching Page 6 aesthetic
 };

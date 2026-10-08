@@ -1,25 +1,43 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSiteData, getStyleObject } from '../context/SiteContext';
 import { WatermarkOverlay } from './WatermarkOverlay';
 
 export const Hero: React.FC = () => {
   const { data } = useSiteData();
-  const { hero } = data;
+  const { hero, approach } = data;
+
+  const [headerHeight, setHeaderHeight] = useState<number>(85);
+
+  useEffect(() => {
+    const updateHeaderHeight = () => {
+      const headerEl = document.getElementById('main-header');
+      if (headerEl) {
+        setHeaderHeight(headerEl.offsetHeight);
+      }
+    };
+    updateHeaderHeight();
+    window.addEventListener('resize', updateHeaderHeight);
+    return () => window.removeEventListener('resize', updateHeaderHeight);
+  }, []);
 
   const titleStyles = getStyleObject(hero.titleStyle);
   const categoryStyles = getStyleObject(hero.categoryStyle);
 
-  // Extract base font sizes for responsive clamp (mobile -> desktop)
-  const rawTitleFontSize = hero.titleStyle?.fontSize || '45px';
-  const parsedTitleSize = parseInt(String(rawTitleFontSize).replace(/[^0-9]/g, ''), 10) || 45;
-  const mobileTitleSize = Math.max(20, Math.round(parsedTitleSize * 0.53)); // e.g., 45px -> 24px on mobile
+  // Extract base font sizes matching the Approach heading
+  const approachHeadingSize = approach?.headingStyle?.fontSize || '32px';
+  const rawTitleFontSize = (!hero.titleStyle?.fontSize || hero.titleStyle?.fontSize === '45px' || hero.titleStyle?.fontSize === '40px')
+    ? approachHeadingSize
+    : hero.titleStyle.fontSize;
+  const parsedTitleSize = parseInt(String(rawTitleFontSize).replace(/[^0-9]/g, ''), 10) || 32;
+  // Match Approach heading proportions: 22px mobile to 32px desktop
+  const mobileTitleSize = Math.max(18, Math.round(parsedTitleSize * (22 / 32)));
 
   const rawCatFontSize = hero.categoryStyle?.fontSize || '15px';
   const parsedCatSize = parseInt(String(rawCatFontSize).replace(/[^0-9]/g, ''), 10) || 15;
   const mobileCatSize = Math.max(10, Math.round(parsedCatSize * 0.73)); // e.g., 15px -> 11px on mobile
 
   return (
-    <section id="hero" className="relative min-h-screen flex flex-col justify-end pt-24 sm:pt-28 pb-8 sm:pb-12 px-4 sm:px-6 md:px-12 bg-black overflow-hidden">
+    <section id="hero" className="relative min-h-screen w-full bg-black overflow-hidden flex flex-col">
       {/* Background Media */}
       <div className="absolute inset-0 z-0">
         {hero.mediaType === 'video' && hero.videoUrl ? (
@@ -44,8 +62,15 @@ export const Hero: React.FC = () => {
         <WatermarkOverlay className="bottom-4 right-4 sm:bottom-6 sm:right-6" />
       </div>
 
-      {/* Hero Content Positioned at the Bottom */}
-      <div className="relative z-10 max-w-5xl mx-auto text-center mt-auto pb-4 px-2 sm:px-4 drop-shadow-md">
+      {/* Top spacer matching the exact height of the fixed navigation header */}
+      <div
+        style={{ height: `${headerHeight}px` }}
+        className="w-full shrink-0 pointer-events-none"
+        aria-hidden="true"
+      />
+
+      {/* Area from navigation bottom to video end area - vertically centered! */}
+      <div className="relative z-10 flex-1 flex flex-col justify-center items-center max-w-5xl mx-auto text-center px-4 sm:px-6 md:px-12 drop-shadow-md pb-6 sm:pb-8">
         {/* Category */}
         <p
           id="hero-banner-category"
@@ -77,9 +102,9 @@ export const Hero: React.FC = () => {
             fontStyle: 'normal',
             lineHeight: 1.25,
             ...titleStyles,
-            fontSize: `clamp(${mobileTitleSize}px, 4.8vw, ${parsedTitleSize}px)`
+            fontSize: `clamp(${mobileTitleSize}px, 3.2vw, ${parsedTitleSize}px)`
           }}
-          className="max-w-4xl mx-auto leading-[1.28] sm:leading-[1.2]"
+          className="max-w-4xl mx-auto leading-[1.25] text-[22px] sm:text-[28px] md:text-[32px] lg:text-[32px]"
         >
           {hero.title}
         </h1>

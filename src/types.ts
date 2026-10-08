@@ -35,6 +35,7 @@ export interface ContactFormData {
 }
 
 export interface TextStyle {
+  fontFamily?: string;
   fontSize?: string;
   fontWeight?: string;
   fontColor?: string;
@@ -80,9 +81,15 @@ export interface VikranttSectionData {
   philosophyQuote: string;
   trustQuote: string;
   vikranttPortraitUrl: string;
+  bgImageUrl?: string;
   portraitGrayscale: boolean;
   bioHighlightText: string;
   ctaUrl: string;
+  modalBioTitle?: string;
+  modalBioSubtitle?: string;
+  modalBioParagraph1?: string;
+  modalBioParagraph2?: string;
+  modalPortraitUrl?: string;
   greetingStyle: TextStyle;
   quotesStyle: TextStyle;
 }

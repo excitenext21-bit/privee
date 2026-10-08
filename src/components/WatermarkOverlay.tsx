@@ -92,7 +92,7 @@ export const WatermarkOverlay: React.FC<WatermarkOverlayProps> = ({
     }
     if (watermark.colorTheme === 'dark') {
       return {
-        color: '#1A1918',
+        color: '#999894',
         textShadow: '0 1px 2px rgba(255,255,255,0.6)'
       };
     }

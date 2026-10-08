@@ -12,7 +12,7 @@ export const SectionEditorVikrantt: React.FC = () => {
     <div className="space-y-6">
       <div className="border-b border-[#E8E2D9] pb-3">
         <h2 className="text-lg font-serif font-medium text-[#1A1918]">
-          Section 3 — HI, I'M VIKRANTT Management
+          Section 3 — Meet the Designer Management
         </h2>
         <p className="text-xs text-[#7A756C]">
           Edit founder biography, quotes, black &amp; white image filter toggles, hyperlink direction, and text styles.
@@ -61,16 +61,14 @@ export const SectionEditorVikrantt: React.FC = () => {
       {/* Images Uploaders with Black & White Toggles */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <ImageUploader
-          label="Dog Portrait Photo"
-          value={vikrantt.dogImageUrl}
-          onChangeUrl={(url) => updateVikrantt({ dogImageUrl: url })}
-          grayscale={vikrantt.dogImageGrayscale}
-          onToggleGrayscale={(b) => updateVikrantt({ dogImageGrayscale: b })}
-          showGrayscaleOption={true}
+          label="Section Background Image"
+          value={vikrantt.bgImageUrl || ''}
+          onChangeUrl={(url) => updateVikrantt({ bgImageUrl: url })}
+          showGrayscaleOption={false}
         />
 
         <ImageUploader
-          label="Vikrantt Portrait Photo"
+          label="Designer Portrait Photo"
           value={vikrantt.vikranttPortraitUrl}
           onChangeUrl={(url) => updateVikrantt({ vikranttPortraitUrl: url })}
           grayscale={vikrantt.portraitGrayscale}
@@ -136,6 +134,7 @@ export const SectionEditorVikrantt: React.FC = () => {
             onChange={(e) => updateVikrantt({ bioHighlightText: e.target.value })}
             className="w-full bg-[#FAF8F5] border border-[#DDD8D0] px-3 py-1.5 text-xs rounded text-[#1A1918] focus:border-[#C5B39C] focus:outline-none"
           />
+          <p className="text-[10px] text-[#A8A298] mt-1">Supports &lt;i&gt;italic words&lt;/i&gt; formatting</p>
         </div>
 
         <TextStyleControls
@@ -158,6 +157,49 @@ export const SectionEditorVikrantt: React.FC = () => {
           placeholder="e.g. #contact"
           className="w-full bg-[#FAF8F5] border border-[#DDD8D0] px-3 py-1.5 text-xs rounded text-[#1A1918] focus:border-[#C5B39C] focus:outline-none"
         />
+      </div>
+
+      {/* Learn More Modal Details */}
+      <div className="bg-white p-4 rounded border border-[#E8E2D9] space-y-3">
+        <label className="block text-xs font-semibold uppercase tracking-wider text-[#1A1918]">
+          "Learn More" Modal Popup Details
+        </label>
+        <div>
+          <label className="block text-[11px] text-[#7A756C] font-medium mb-1">Modal Name / Title</label>
+          <input
+            type="text"
+            value={vikrantt.modalBioTitle || 'VIKRANTT'}
+            onChange={(e) => updateVikrantt({ modalBioTitle: e.target.value })}
+            className="w-full bg-[#FAF8F5] border border-[#DDD8D0] px-3 py-1.5 text-xs rounded text-[#1A1918] focus:border-[#C5B39C] focus:outline-none"
+          />
+        </div>
+        <div>
+          <label className="block text-[11px] text-[#7A756C] font-medium mb-1">Modal Subtitle / Role</label>
+          <input
+            type="text"
+            value={vikrantt.modalBioSubtitle || 'Owner & Designer'}
+            onChange={(e) => updateVikrantt({ modalBioSubtitle: e.target.value })}
+            className="w-full bg-[#FAF8F5] border border-[#DDD8D0] px-3 py-1.5 text-xs rounded text-[#1A1918] focus:border-[#C5B39C] focus:outline-none"
+          />
+        </div>
+        <div>
+          <label className="block text-[11px] text-[#7A756C] font-medium mb-1">Modal Bio Paragraph 1</label>
+          <textarea
+            rows={3}
+            value={vikrantt.modalBioParagraph1 || ''}
+            onChange={(e) => updateVikrantt({ modalBioParagraph1: e.target.value })}
+            className="w-full bg-[#FAF8F5] border border-[#DDD8D0] px-3 py-1.5 text-xs rounded text-[#1A1918] focus:border-[#C5B39C] focus:outline-none"
+          />
+        </div>
+        <div>
+          <label className="block text-[11px] text-[#7A756C] font-medium mb-1">Modal Bio Paragraph 2</label>
+          <textarea
+            rows={3}
+            value={vikrantt.modalBioParagraph2 || ''}
+            onChange={(e) => updateVikrantt({ modalBioParagraph2: e.target.value })}
+            className="w-full bg-[#FAF8F5] border border-[#DDD8D0] px-3 py-1.5 text-xs rounded text-[#1A1918] focus:border-[#C5B39C] focus:outline-none"
+          />
+        </div>
       </div>
     </div>
   );

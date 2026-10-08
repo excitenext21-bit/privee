@@ -26,7 +26,7 @@ export const LightBoxModal: React.FC<LightBoxModalProps> = ({ item, onClose }) =
   if (!item) return null;
 
   return (
-    <div className="fixed inset-0 z-50 bg-[#1A1918]/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-8 animate-fadeIn">
+    <div className="fixed inset-0 z-50 bg-[#999894]/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-8 animate-fadeIn">
       {/* Modal Container */}
       <div className="relative bg-[#FAF8F5] max-w-5xl w-full max-h-[90vh] overflow-y-auto border border-[#E8E2D9] shadow-2xl grid grid-cols-1 md:grid-cols-12">
         
@@ -34,13 +34,13 @@ export const LightBoxModal: React.FC<LightBoxModalProps> = ({ item, onClose }) =
         <button
           onClick={onClose}
           aria-label="Close modal"
-          className="absolute top-4 right-4 z-10 p-3 bg-[#1A1918] text-[#FAF8F5] hover:bg-[#B59E83] transition-colors rounded-full cursor-pointer shadow-md"
+          className="absolute top-4 right-4 z-10 p-3 bg-[#999894] text-[#FAF8F5] hover:bg-[#B59E83] transition-colors rounded-full cursor-pointer shadow-md"
         >
           <X size={20} />
         </button>
 
         {/* Left Column: Image */}
-        <div className="relative md:col-span-7 bg-[#1A1918] flex items-center justify-center p-2 overflow-hidden min-h-[300px]">
+        <div className="relative md:col-span-7 bg-[#999894] flex items-center justify-center p-2 overflow-hidden min-h-[300px]">
           <img
             src={item.image}
             alt={item.title}
@@ -57,7 +57,7 @@ export const LightBoxModal: React.FC<LightBoxModalProps> = ({ item, onClose }) =
               <span>{item.category} COLLECTION</span>
             </div>
 
-            <h3 className="text-2xl sm:text-3xl font-serif text-[#1A1918] font-light leading-tight mb-4">
+            <h3 className="text-2xl sm:text-3xl font-serif text-[#999894] font-light leading-tight mb-4">
               {item.title}
             </h3>
 
@@ -72,7 +72,7 @@ export const LightBoxModal: React.FC<LightBoxModalProps> = ({ item, onClose }) =
               </div>
             </div>
 
-            <p className="text-sm text-[#4A4643] leading-relaxed font-sans italic">
+            <p className="text-sm text-[#999894] leading-relaxed font-sans italic">
               "{item.description}"
             </p>
           </div>
@@ -84,7 +84,7 @@ export const LightBoxModal: React.FC<LightBoxModalProps> = ({ item, onClose }) =
             <a
               href="#contact"
               onClick={onClose}
-              className="text-xs uppercase tracking-[0.2em] text-[#1A1918] font-medium border-b border-[#1A1918] hover:text-[#B59E83]"
+              className="text-xs uppercase tracking-[0.2em] text-[#999894] font-medium border-b border-[#999894] hover:text-[#B59E83]"
             >
               Inquire Similar Event
             </a>

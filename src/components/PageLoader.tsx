@@ -101,7 +101,7 @@ export const PageLoader: React.FC<PageLoaderProps> = ({ onComplete }) => {
         <div className="mt-8 w-44 sm:w-52 flex flex-col items-center">
           <div className="w-full h-[1.5px] bg-[#E8E2D9] relative overflow-hidden rounded-full">
             <div
-              className="absolute top-0 left-0 bottom-0 bg-gradient-to-r from-[#D4C3B3] via-[#1A1918] to-[#C5B39C] transition-all duration-150 ease-out"
+              className="absolute top-0 left-0 bottom-0 bg-gradient-to-r from-[#D4C3B3] via-[#999894] to-[#C5B39C] transition-all duration-150 ease-out"
               style={{ width: `${progress}%` }}
             />
           </div>

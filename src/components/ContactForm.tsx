@@ -4,10 +4,16 @@ import { useSiteData, getStyleObject } from '../context/SiteContext';
 import { CheckCircle, Instagram } from 'lucide-react';
 import { Logo } from './Logo';
 import { WatermarkOverlay } from './WatermarkOverlay';
+import contactMandapCouple from '../assets/images/contact_mandap_couple.jpg';
 
 export const ContactForm: React.FC = () => {
   const { data, addEnquiry, openCms } = useSiteData();
   const { contact } = data;
+
+  const contactImageSrc =
+    contact.imageUrl && !contact.imageUrl.includes('photo-1519741497674')
+      ? contact.imageUrl
+      : contactMandapCouple;
 
   const [formData, setFormData] = useState<ContactFormData>({
     name: '',
@@ -64,75 +70,86 @@ export const ContactForm: React.FC = () => {
   return (
     <section
       id="contact"
-      style={{ backgroundColor: '#ECE9E3' }}
-      className="pt-14 sm:pt-20 pb-6 sm:pb-8 overflow-hidden"
+      style={{ backgroundColor: '#ECEAE5' }}
+      className="pt-14 sm:pt-20 pb-8 sm:pb-12 overflow-hidden"
     >
-      <div className="w-full pl-[2.5vw] pr-[10vw]">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 items-start">
+      <div className="w-full pl-[3vw] sm:pl-[4vw] pr-[5vw] sm:pr-[8vw] max-w-[1440px] mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
           
           {/* Left Column */}
-          <div className="md:col-span-6 flex flex-col items-start text-left">
+          <div className="lg:col-span-7 flex flex-col items-start text-left">
             
-            {/* Title Block */}
-            <div className="mb-8 sm:mb-10 text-center w-full max-w-[480px] lg:max-w-[520px] px-6 sm:px-8">
-              <h2
+            {/* Poem Title Block - Centered directly over the photo */}
+            <div className="w-full max-w-[440px] lg:max-w-[480px] mb-8 sm:mb-12 text-center">
+              <div
                 style={{
-                  color: 'rgba(0,0,0,0.5)',
-                  lineHeight: 1.8,
-                  letterSpacing: '0.02em',
+                  color: '#8A8487',
+                  lineHeight: 1.65,
+                  letterSpacing: '0.01em',
                   fontSize: '18px',
                   textAlign: 'center',
-                  fontFamily: "'Nanum Myeongjo', serif",
+                  fontFamily: "'Nanum Myeongjo', 'Cormorant Garamond', serif",
                   fontWeight: 400,
-                  fontStyle: 'normal',
                   ...getStyleObject(contact.headingStyle)
                 }}
-                className="max-w-sm mx-auto whitespace-pre-line"
+                className="mx-auto"
               >
-                {contact.heading}
-              </h2>
+                {contact.heading && !contact.heading.includes("Let's make your day") ? (
+                  <p className="whitespace-pre-line">{contact.heading}</p>
+                ) : (
+                  <>
+                    <p>Let's make your day</p>
+                    <p className="italic font-serif">a pure dream –</p>
+                    <p>Even better than you imagined</p>
+                    <p className="italic font-serif">it could be</p>
+                  </>
+                )}
+              </div>
             </div>
 
-            {/* Photo & Contact Box Overlay */}
-            <div className="relative w-full max-w-[480px] lg:max-w-[520px] pl-0 ml-0 mr-auto mb-12 md:mb-0">
+            {/* Photo & Contact Details */}
+            <div className="relative w-full max-w-[440px] lg:max-w-[480px] pl-0 ml-0 mr-auto mb-10 lg:mb-0">
               <div className="relative w-full aspect-[4/5] overflow-hidden shadow-xs bg-[#EFECE6]">
                 <img
-                  src={contact.imageUrl}
-                  alt="Bride and Groom Holding Hands"
+                  src={contactImageSrc}
+                  alt="Bride and Groom under Floral Mandap"
                   className="w-full h-full object-cover"
                 />
                 <WatermarkOverlay />
               </div>
 
-              {/* Contact Details */}
+              {/* Contact Details beside photo on desktop, below on mobile */}
               <div
                 style={{
                   fontFamily: "'Nanum Myeongjo', 'Cormorant Garamond', serif",
-                  color: 'rgba(120,115,108,1)',
-                  fontSize: '13px',
-                  lineHeight: 1.7
+                  color: '#898284',
+                  fontSize: '12px',
+                  lineHeight: 1.65
                 }}
-                className="md:absolute md:left-full md:ml-5 lg:ml-7 md:bottom-1 w-auto min-w-[220px] text-left mt-6 md:mt-0 z-10"
+                className="lg:absolute lg:left-full lg:ml-6 lg:bottom-1 w-auto min-w-[240px] text-left mt-6 lg:mt-0 z-10"
               >
                 <p>
                   E:{' '}
                   <a
-                    href={`mailto:${contact.email}`}
-                    className="hover:text-[#1A1918] hover:underline underline-offset-2 transition-colors cursor-pointer"
-                    title={`Email ${contact.email}`}
+                    href={`mailto:${contact.email || 'nina@ninamoore.com'}`}
+                    className="hover:text-[#5E5952] transition-colors cursor-pointer"
+                    title={`Email ${contact.email || 'nina@ninamoore.com'}`}
                   >
-                    {contact.email}
+                    {contact.email || 'nina@ninamoore.com'}
                   </a>
                 </p>
                 <p>
                   P:{' '}
                   <a
-                    href={`tel:${contact.phone.replace(/[^+\d]/g, '')}`}
-                    className="hover:text-[#1A1918] hover:underline underline-offset-2 transition-colors cursor-pointer"
-                    title={`Call ${contact.phone}`}
+                    href={`tel:${(contact.phone || '(805) 881-8167').replace(/[^+\d]/g, '')}`}
+                    className="hover:text-[#5E5952] transition-colors cursor-pointer"
+                    title={`Call ${contact.phone || '(805) 881-8167'}`}
                   >
-                    {contact.phone}
+                    {contact.phone || '(805) 881-8167'}
                   </a>
+                </p>
+                <p className="mt-3.5 text-[#898284]">
+                  {contact.address || 'California – New York & Destination'}
                 </p>
               </div>
             </div>
@@ -140,43 +157,54 @@ export const ContactForm: React.FC = () => {
           </div>
 
           {/* Right Column: Intro text & Form */}
-          <div className="md:col-span-6 flex flex-col justify-start pt-1 max-w-[455px] w-full md:ml-auto">
+          <div className="lg:col-span-5 flex flex-col justify-start pt-1 max-w-[420px] lg:max-w-[440px] w-full lg:ml-auto">
             
             {/* Intro Text */}
-            <div className="mb-6 space-y-2">
-              <p
+            <div className="mb-7 text-left">
+              <div
                 style={{
                   fontFamily: "'Nanum Myeongjo', 'Cormorant Garamond', serif",
-                  color: 'rgba(140,135,128,1)',
+                  color: '#807C81',
                   fontSize: '13.5px',
-                  lineHeight: 1.55,
+                  lineHeight: 1.65,
                   ...getStyleObject(contact.introStyle)
                 }}
-                className="whitespace-pre-line"
+                className="space-y-3"
               >
-                {contact.introText}
-              </p>
+                {contact.introText && !contact.introText.includes('Reach out and share') ? (
+                  <p className="whitespace-pre-line">{contact.introText}</p>
+                ) : (
+                  <>
+                    <p>
+                      Reach out and share a few details about your day and we'll be in touch to book a complimentary consultation.
+                    </p>
+                    <p>
+                      <span className="italic font-serif">Thank you</span> — we look forward to hearing from you!
+                    </p>
+                  </>
+                )}
+              </div>
             </div>
 
             {submitted ? (
               <div className="py-8 text-center space-y-4">
                 <CheckCircle size={36} className="text-[#A39A8E] mx-auto" />
-                <h3 className="text-xl font-serif text-[#3A3835]">Thank You</h3>
+                <h3 className="text-xl font-serif text-[#8A8487]">Thank You</h3>
                 <p
-                  style={{ fontFamily: "'Nanum Myeongjo', serif", color: 'rgba(140,135,128,1)' }}
+                  style={{ fontFamily: "'Nanum Myeongjo', serif", color: '#807C81' }}
                   className="text-xs max-w-md mx-auto leading-relaxed"
                 >
                   Your inquiry has been received. We look forward to reviewing your details and connecting with you shortly.
                 </p>
                 <button
                   onClick={resetForm}
-                  className="px-5 py-2 bg-[#3A3835] text-white text-[11px] uppercase tracking-[0.2em] hover:bg-[#8C867B] transition-colors cursor-pointer"
+                  className="px-5 py-2 bg-[#999894] text-white text-[11px] uppercase tracking-[0.2em] hover:bg-[#8C867B] transition-colors cursor-pointer"
                 >
                   Send Another Message
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form onSubmit={handleSubmit} className="space-y-5">
                 {errorMsg && (
                   <div className="p-2.5 bg-red-50 text-red-700 text-[11px] tracking-wider uppercase border border-red-200">
                     {errorMsg}
@@ -184,19 +212,17 @@ export const ContactForm: React.FC = () => {
                 )}
 
                 {/* NAME */}
-                <div>
+                <div className="text-left">
                   <label
                     style={{
                       textTransform: 'uppercase',
-                      lineHeight: 1.8,
-                      letterSpacing: '0.1em',
-                      fontSize: '14px',
-                      textAlign: 'left',
+                      letterSpacing: '0.18em',
+                      fontSize: '10.5px',
                       fontFamily: "'Karla', sans-serif",
-                      fontWeight: 400,
-                      fontStyle: 'normal'
+                      color: '#A6A199',
+                      fontWeight: 400
                     }}
-                    className="block text-[#A09A92] mb-0.5"
+                    className="block mb-1"
                   >
                     NAME
                   </label>
@@ -206,24 +232,22 @@ export const ContactForm: React.FC = () => {
                     required
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full bg-transparent border-b border-[#C8C2B8] py-1.5 text-xs text-[#3A3835] focus:outline-none focus:border-[#8C867B]"
+                    className="w-full bg-transparent border-b border-[#C6C4BF] pb-1 pt-0.5 text-xs sm:text-[13px] text-[#4A4641] focus:outline-none focus:border-[#7A756D] transition-colors"
                   />
                 </div>
 
                 {/* EMAIL ADDRESS */}
-                <div>
+                <div className="text-left">
                   <label
                     style={{
                       textTransform: 'uppercase',
-                      lineHeight: 1.8,
-                      letterSpacing: '0.1em',
-                      fontSize: '14px',
-                      textAlign: 'left',
+                      letterSpacing: '0.18em',
+                      fontSize: '10.5px',
                       fontFamily: "'Karla', sans-serif",
-                      fontWeight: 400,
-                      fontStyle: 'normal'
+                      color: '#A6A199',
+                      fontWeight: 400
                     }}
-                    className="block text-[#A09A92] mb-0.5"
+                    className="block mb-1"
                   >
                     EMAIL ADDRESS
                   </label>
@@ -233,24 +257,22 @@ export const ContactForm: React.FC = () => {
                     required
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full bg-transparent border-b border-[#C8C2B8] py-1.5 text-xs text-[#3A3835] focus:outline-none focus:border-[#8C867B]"
+                    className="w-full bg-transparent border-b border-[#C6C4BF] pb-1 pt-0.5 text-xs sm:text-[13px] text-[#4A4641] focus:outline-none focus:border-[#7A756D] transition-colors"
                   />
                 </div>
 
                 {/* EVENT DATE */}
-                <div>
+                <div className="text-left">
                   <label
                     style={{
                       textTransform: 'uppercase',
-                      lineHeight: 1.8,
-                      letterSpacing: '0.1em',
-                      fontSize: '14px',
-                      textAlign: 'left',
+                      letterSpacing: '0.18em',
+                      fontSize: '10.5px',
                       fontFamily: "'Karla', sans-serif",
-                      fontWeight: 400,
-                      fontStyle: 'normal'
+                      color: '#A6A199',
+                      fontWeight: 400
                     }}
-                    className="block text-[#A09A92] mb-0.5"
+                    className="block mb-1"
                   >
                     EVENT DATE
                   </label>
@@ -259,24 +281,22 @@ export const ContactForm: React.FC = () => {
                     name="eventDate"
                     value={formData.eventDate}
                     onChange={handleChange}
-                    className="w-full bg-transparent border-b border-[#C8C2B8] py-1.5 text-xs text-[#3A3835] focus:outline-none focus:border-[#8C867B]"
+                    className="w-full bg-transparent border-b border-[#C6C4BF] pb-1 pt-0.5 text-xs sm:text-[13px] text-[#4A4641] focus:outline-none focus:border-[#7A756D] transition-colors"
                   />
                 </div>
 
                 {/* LOCATION */}
-                <div>
+                <div className="text-left">
                   <label
                     style={{
                       textTransform: 'uppercase',
-                      lineHeight: 1.8,
-                      letterSpacing: '0.1em',
-                      fontSize: '14px',
-                      textAlign: 'left',
+                      letterSpacing: '0.18em',
+                      fontSize: '10.5px',
                       fontFamily: "'Karla', sans-serif",
-                      fontWeight: 400,
-                      fontStyle: 'normal'
+                      color: '#A6A199',
+                      fontWeight: 400
                     }}
-                    className="block text-[#A09A92] mb-0.5"
+                    className="block mb-1"
                   >
                     LOCATION
                   </label>
@@ -285,24 +305,22 @@ export const ContactForm: React.FC = () => {
                     name="location"
                     value={formData.location}
                     onChange={handleChange}
-                    className="w-full bg-transparent border-b border-[#C8C2B8] py-1.5 text-xs text-[#3A3835] focus:outline-none focus:border-[#8C867B]"
+                    className="w-full bg-transparent border-b border-[#C6C4BF] pb-1 pt-0.5 text-xs sm:text-[13px] text-[#4A4641] focus:outline-none focus:border-[#7A756D] transition-colors"
                   />
                 </div>
 
                 {/* GUEST COUNT */}
-                <div>
+                <div className="text-left">
                   <label
                     style={{
                       textTransform: 'uppercase',
-                      lineHeight: 1.8,
-                      letterSpacing: '0.1em',
-                      fontSize: '14px',
-                      textAlign: 'left',
+                      letterSpacing: '0.18em',
+                      fontSize: '10.5px',
                       fontFamily: "'Karla', sans-serif",
-                      fontWeight: 400,
-                      fontStyle: 'normal'
+                      color: '#A6A199',
+                      fontWeight: 400
                     }}
-                    className="block text-[#A09A92] mb-0.5"
+                    className="block mb-1"
                   >
                     GUEST COUNT
                   </label>
@@ -311,24 +329,22 @@ export const ContactForm: React.FC = () => {
                     name="guestCount"
                     value={formData.guestCount}
                     onChange={handleChange}
-                    className="w-full bg-transparent border-b border-[#C8C2B8] py-1.5 text-xs text-[#3A3835] focus:outline-none focus:border-[#8C867B]"
+                    className="w-full bg-transparent border-b border-[#C6C4BF] pb-1 pt-0.5 text-xs sm:text-[13px] text-[#4A4641] focus:outline-none focus:border-[#7A756D] transition-colors"
                   />
                 </div>
 
                 {/* BUDGET */}
-                <div>
+                <div className="text-left">
                   <label
                     style={{
                       textTransform: 'uppercase',
-                      lineHeight: 1.8,
-                      letterSpacing: '0.1em',
-                      fontSize: '14px',
-                      textAlign: 'left',
+                      letterSpacing: '0.18em',
+                      fontSize: '10.5px',
                       fontFamily: "'Karla', sans-serif",
-                      fontWeight: 400,
-                      fontStyle: 'normal'
+                      color: '#A6A199',
+                      fontWeight: 400
                     }}
-                    className="block text-[#A09A92] mb-0.5"
+                    className="block mb-1"
                   >
                     BUDGET
                   </label>
@@ -337,51 +353,48 @@ export const ContactForm: React.FC = () => {
                     name="budget"
                     value={formData.budget}
                     onChange={handleChange}
-                    className="w-full bg-transparent border-b border-[#C8C2B8] py-1.5 text-xs text-[#3A3835] focus:outline-none focus:border-[#8C867B]"
+                    className="w-full bg-transparent border-b border-[#C6C4BF] pb-1 pt-0.5 text-xs sm:text-[13px] text-[#4A4641] focus:outline-none focus:border-[#7A756D] transition-colors"
                   />
                 </div>
 
                 {/* MESSAGE */}
-                <div>
+                <div className="text-left">
                   <label
                     style={{
                       textTransform: 'uppercase',
-                      lineHeight: 1.8,
-                      letterSpacing: '0.1em',
-                      fontSize: '14px',
-                      textAlign: 'left',
+                      letterSpacing: '0.18em',
+                      fontSize: '10.5px',
                       fontFamily: "'Karla', sans-serif",
-                      fontWeight: 400,
-                      fontStyle: 'normal'
+                      color: '#A6A199',
+                      fontWeight: 400
                     }}
-                    className="block text-[#A09A92] mb-0.5"
+                    className="block mb-2"
                   >
                     MESSAGE
                   </label>
                   <textarea
                     name="message"
-                    rows={3}
                     value={formData.message}
                     onChange={handleChange}
-                    className="w-full bg-transparent border-b border-[#C8C2B8] p-2.5 text-xs text-[#3A3835] focus:outline-none focus:border-[#8C867B] resize-none mt-0.5"
+                    className="w-full bg-transparent border border-[#C6C4BF] p-3 text-xs sm:text-[13px] text-[#4A4641] focus:outline-none focus:border-[#7A756D] resize-none h-[115px] sm:h-[120px] transition-colors rounded-none"
                   ></textarea>
                 </div>
 
                 {/* SUBMIT BUTTON */}
-                <div className="pt-1 flex items-center">
+                <div className="pt-1 text-left">
                   <button
                     type="submit"
                     disabled={loading}
-                    className="flex items-center space-x-2.5 text-[#A09A92] hover:text-[#3A3835] transition-colors cursor-pointer group"
+                    className="inline-flex items-center space-x-2.5 text-[#8C877E] hover:text-[#5E5952] transition-colors cursor-pointer group"
                   >
                     <span
-                      style={{ fontFamily: "'Cormorant Garamond', 'Didot', serif" }}
-                      className="italic text-sm sm:text-base"
+                      style={{ fontFamily: "'Cormorant Garamond', 'Nanum Myeongjo', serif" }}
+                      className="italic text-[14px] sm:text-[15px] font-normal"
                     >
                       {loading ? 'Submitting...' : 'Submit Form'}
                     </span>
-                    <span className="w-5 h-5 rounded-full bg-[#A09A92]/40 group-hover:bg-[#8C867B] text-white flex items-center justify-center transition-colors">
-                      <svg className="w-2.5 h-2.5 fill-current text-white" viewBox="0 0 20 20">
+                    <span className="w-4 h-4 rounded-full bg-[#999894] group-hover:bg-[#7A756D] text-white flex items-center justify-center transition-colors">
+                      <svg className="w-2 h-2 fill-current" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
                       </svg>
                     </span>
@@ -406,7 +419,7 @@ export const ContactForm: React.FC = () => {
                 color: 'rgba(153,152,148,1)',
                 textTransform: 'uppercase'
               }}
-              className="hover:text-[#1A1918] transition-colors font-normal cursor-pointer"
+              className="hover:text-[#999894] transition-colors font-normal cursor-pointer"
             >
               PORTFOLIO
             </a>
@@ -419,7 +432,7 @@ export const ContactForm: React.FC = () => {
                 color: 'rgba(153,152,148,1)',
                 textTransform: 'uppercase'
               }}
-              className="hover:text-[#1A1918] transition-colors font-normal cursor-pointer"
+              className="hover:text-[#999894] transition-colors font-normal cursor-pointer"
             >
               ABOUT
             </a>
@@ -454,7 +467,7 @@ export const ContactForm: React.FC = () => {
                 color: 'rgba(153,152,148,1)',
                 textTransform: 'uppercase'
               }}
-              className="hover:text-[#1A1918] transition-colors font-normal cursor-pointer"
+              className="hover:text-[#999894] transition-colors font-normal cursor-pointer"
             >
               SERVICES
             </a>
@@ -467,7 +480,7 @@ export const ContactForm: React.FC = () => {
                 color: 'rgba(153,152,148,1)',
                 textTransform: 'uppercase'
               }}
-              className="hover:text-[#1A1918] transition-colors font-normal cursor-pointer"
+              className="hover:text-[#999894] transition-colors font-normal cursor-pointer"
             >
               CONTACT
             </a>
@@ -477,7 +490,7 @@ export const ContactForm: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
-                className="hover:text-[#1A1918] transition-colors"
+                className="hover:text-[#999894] transition-colors"
               >
                 <Instagram size={14} />
               </a>

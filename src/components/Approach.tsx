@@ -1,10 +1,47 @@
 import React from 'react';
 import { useSiteData, getStyleObject } from '../context/SiteContext';
 import { WatermarkOverlay } from './WatermarkOverlay';
+import approachOceanMandap from '../assets/images/approach_ocean_mandap.jpg';
+import approachChandelierBallroom from '../assets/images/approach_chandelier_ballroom.jpg';
 
 export const Approach: React.FC = () => {
   const { data } = useSiteData();
   const { approach } = data;
+
+  const leftImageSrc = approach.leftImageUrl && !approach.leftImageUrl.includes('photo-1511285560929')
+    ? approach.leftImageUrl
+    : approachOceanMandap;
+
+  const rightImageSrc = approach.rightImageUrl && !approach.rightImageUrl.includes('photo-1519225421980')
+    ? approach.rightImageUrl
+    : approachChandelierBallroom;
+
+  const isOldHeading = approach.heading === 'Timeless with a contemporary edge and unwavering hospitality';
+  const displayHeading = isOldHeading
+    ? 'Timeless design with a contemporary\nedge and unwavering flawless execution'
+    : (approach.heading || 'Timeless design with a contemporary\nedge and unwavering flawless execution');
+
+  const isOldSubheading = approach.subheading === 'For thoughtful tastemakers & dreamers';
+  const displaySubheading = isOldSubheading ? '' : (approach.subheading || '');
+
+  const renderHeadingWithItalicAnd = (text: string) => {
+    if (!text) return null;
+    const parts = text.split(/(\band\b|&)/gi);
+    return parts.map((part, index) => {
+      if (part.toLowerCase() === 'and' || part === '&') {
+        return (
+          <span
+            key={index}
+            style={{ fontStyle: 'italic', fontFamily: "'Cormorant Garamond', serif" }}
+            className="italic font-serif"
+          >
+            {part}
+          </span>
+        );
+      }
+      return <React.Fragment key={index}>{part}</React.Fragment>;
+    });
+  };
 
   const handleDetailsClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     if (approach.ctaUrl && approach.ctaUrl.startsWith('#')) {
@@ -25,8 +62,8 @@ export const Approach: React.FC = () => {
           <div className="lg:col-span-5 lg:pt-12 xl:pt-16">
             <div className="relative overflow-hidden w-full h-[500px] sm:h-[620px] md:h-[680px] lg:h-[720px]">
               <img
-                key={`approach-left-${approach.leftImageUrl}`}
-                src={approach.leftImageUrl}
+                key={`approach-left-${leftImageSrc}`}
+                src={leftImageSrc}
                 alt="Luxury Event Design"
                 className="w-full h-full object-cover"
                 loading="eager"
@@ -49,28 +86,32 @@ export const Approach: React.FC = () => {
               <h2
                 id="approach-heading"
                 style={{
-                  color: 'rgba(153,152,148,1)',
+                  lineHeight: 1.25,
+                  textDecoration: 'none',
+                  ...getStyleObject(approach.headingStyle),
+                  color: 'rgba(153, 152, 148, 1)',
                   textTransform: 'none',
                   letterSpacing: '0.02em',
+                  fontSize: '32px',
                   textAlign: 'center',
-                  fontFamily: "'Cormorant Garamond', 'Didot', serif",
+                  fontFamily: "'Cormorant Garamond', serif",
                   fontWeight: 400,
-                  fontStyle: 'normal',
-                  lineHeight: 1.25,
-                  ...getStyleObject(approach.headingStyle)
+                  fontStyle: 'normal'
                 }}
-                className="mb-4 sm:mb-5 text-[26px] sm:text-[34px] md:text-[38px] lg:text-[40px]"
+                className="mb-4 sm:mb-5 text-[24px] sm:text-[28px] md:text-[32px] lg:text-[32px] whitespace-pre-line"
               >
-                {approach.heading}
+                {renderHeadingWithItalicAnd(displayHeading)}
               </h2>
 
               {/* Tagline / Subheading */}
-              <p
-                style={getStyleObject(approach.subheadingStyle)}
-                className="font-serif italic text-base sm:text-xl md:text-[22px] text-[#A8A298] font-light mb-6 sm:mb-8"
-              >
-                {approach.subheading}
-              </p>
+              {displaySubheading && displaySubheading.trim() !== '' ? (
+                <p
+                  style={getStyleObject(approach.subheadingStyle)}
+                  className="font-serif italic text-base sm:text-xl md:text-[22px] text-[#A8A298] font-light mb-6 sm:mb-8"
+                >
+                  {displaySubheading}
+                </p>
+              ) : null}
 
               {/* Body Paragraph */}
               <p
@@ -86,7 +127,7 @@ export const Approach: React.FC = () => {
                 <a
                   href={approach.ctaUrl || '#about'}
                   onClick={handleDetailsClick}
-                  className="inline-block text-[11px] sm:text-xs uppercase tracking-[0.25em] font-sans text-[#7A756C] hover:text-[#1A1918] border-b border-[#C8C2B8] hover:border-[#1A1918] pb-1 transition-colors cursor-pointer"
+                  className="inline-block text-[11px] sm:text-xs uppercase tracking-[0.25em] font-sans text-[#7A756C] hover:text-[#999894] border-b border-[#C8C2B8] hover:border-[#999894] pb-1 transition-colors cursor-pointer"
                 >
                   {approach.ctaText}
                 </a>
@@ -96,8 +137,8 @@ export const Approach: React.FC = () => {
             {/* Second Image - on mobile appears after content (order-2), on desktop appears at the top (lg:order-1) */}
             <div className="order-2 lg:order-1 relative overflow-hidden w-full h-[280px] sm:h-[360px] md:h-[400px] lg:h-[440px]">
               <img
-                key={`approach-right-${approach.rightImageUrl}`}
-                src={approach.rightImageUrl}
+                key={`approach-right-${rightImageSrc}`}
+                src={rightImageSrc}
                 alt="Fine Art Photography"
                 className="w-full h-full object-cover grayscale contrast-110"
                 loading="eager"

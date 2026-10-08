@@ -74,7 +74,7 @@ export const AdminCmsModal: React.FC = () => {
     { id: 'watermark', title: 'Global Image Watermark', icon: ShieldCheck },
     { id: 'hero', title: 'Section 1 — Hero Section', icon: Layout },
     { id: 'approach', title: 'Section 2 — OUR APPROACH', icon: Compass },
-    { id: 'vikrantt', title: "Section 3 — HI, I'M VIKRANTT", icon: UserCheck },
+    { id: 'vikrantt', title: "Section 3 — Meet the Designer", icon: UserCheck },
     { id: 'publications', title: 'Section 4 — Publications', icon: Award },
     { id: 'portfolio', title: 'Section 5 — PORTFOLIO', icon: Grid },
     { id: 'testimonials', title: 'Section 6 — Testimonials', icon: Quote },

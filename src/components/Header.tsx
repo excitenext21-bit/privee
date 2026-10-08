@@ -88,9 +88,9 @@ export const Header: React.FC<HeaderProps> = ({ activeSection }) => {
                   onClick={(e) => handleNavClick(e, link.href)}
                   style={{
                     ...baseNavLinkStyle,
-                    color: isActive ? '#1A1918' : (navCustomStyle.color || 'rgba(153,152,148,1)'),
+                    color: isActive ? '#999894' : (navCustomStyle.color || '#999894'),
                   }}
-                  className="uppercase tracking-[0.28em] font-sans font-medium hover:text-[#1A1918] cursor-pointer"
+                  className="uppercase tracking-[0.28em] font-sans font-medium hover:text-[#999894] cursor-pointer"
                 >
                   {link.name}
                 </a>
@@ -117,9 +117,9 @@ export const Header: React.FC<HeaderProps> = ({ activeSection }) => {
                   onClick={(e) => handleNavClick(e, link.href)}
                   style={{
                     ...baseNavLinkStyle,
-                    color: isActive ? '#1A1918' : (navCustomStyle.color || 'rgba(153,152,148,1)'),
+                    color: isActive ? '#999894' : (navCustomStyle.color || '#999894'),
                   }}
-                  className="uppercase tracking-[0.28em] font-sans font-medium hover:text-[#1A1918] cursor-pointer"
+                  className="uppercase tracking-[0.28em] font-sans font-medium hover:text-[#999894] cursor-pointer"
                 >
                   {link.name}
                 </a>
@@ -141,7 +141,7 @@ export const Header: React.FC<HeaderProps> = ({ activeSection }) => {
             id="mobile-menu-toggle"
             aria-label="Toggle navigation menu"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 text-[#2C2A29] focus:outline-hidden"
+            className="p-2 text-[#999894] focus:outline-hidden"
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -159,7 +159,7 @@ export const Header: React.FC<HeaderProps> = ({ activeSection }) => {
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
                 style={baseNavLinkStyle}
-                className="text-sm tracking-[0.3em] font-sans hover:text-[#1A1918] uppercase transition-colors"
+                className="text-sm tracking-[0.3em] font-sans hover:text-[#999894] uppercase transition-colors"
               >
                 {link.name}
               </a>

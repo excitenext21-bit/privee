@@ -5,7 +5,6 @@ import { Hero } from './components/Hero';
 import { Approach } from './components/Approach';
 import { AboutVikrantt } from './components/AboutVikrantt';
 import { Portfolio } from './components/Portfolio';
-import { Publications } from './components/Publications';
 import { Testimonials } from './components/Testimonials';
 import { Process } from './components/Process';
 import { ContactForm } from './components/ContactForm';
@@ -43,7 +42,7 @@ export default function App() {
 
   return (
     <SiteProvider>
-      <div className="min-h-screen bg-[#FAF8F5] text-[#2C2A29] font-sans antialiased selection:bg-[#D4C3B3] selection:text-[#1A1918]">
+      <div className="min-h-screen bg-[#FAF8F5] text-[#999894] font-sans antialiased selection:bg-[#D4C3B3] selection:text-[#999894]">
         {/* Luxury Creative Preloader */}
         <PageLoader />
 
@@ -58,14 +57,11 @@ export default function App() {
           {/* Our Approach Section */}
           <Approach />
 
-          {/* Meet Vikrantt / About Section */}
+          {/* Meet the Designer Section */}
           <AboutVikrantt />
 
           {/* Portfolio & Signature Work Section */}
           <Portfolio />
-
-          {/* Featured in Esteemed Publications Section */}
-          <Publications />
 
           {/* Client & Partner Praise / Testimonials Section */}
           <Testimonials />

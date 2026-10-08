@@ -2,12 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useSiteData, getStyleObject } from '../context/SiteContext';
 import { WatermarkOverlay } from './WatermarkOverlay';
-
-const coupleImage = 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1000';
+import testimonialsPriveeMagazine from '../assets/images/testimonials_privee_magazine.jpg';
 
 export const Testimonials: React.FC = () => {
   const { data } = useSiteData();
   const { testimonials } = data;
+
+  const displayImage =
+    testimonials.imageUrl && !testimonials.imageUrl.includes('photo-1519741497674')
+      ? testimonials.imageUrl
+      : testimonialsPriveeMagazine;
 
   const [activeIdx, setActiveIdx] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
@@ -122,9 +126,9 @@ export const Testimonials: React.FC = () => {
             <div className="md:col-span-6 flex justify-center md:justify-start -mt-12 sm:-mt-16 md:-mt-20">
               <div className="relative w-full max-w-[460px] aspect-[4/5] overflow-hidden shadow-sm bg-[#EFECE6] z-10">
                 <img
-                  src={testimonials.imageUrl || coupleImage}
-                  alt="Couple moment"
-                  className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                  src={displayImage}
+                  alt="PRIVÉE Wedding - Couple of the Month"
+                  className="w-full h-full object-cover transition-all duration-700"
                 />
                 <WatermarkOverlay />
               </div>

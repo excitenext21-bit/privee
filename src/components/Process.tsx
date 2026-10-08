@@ -56,14 +56,14 @@ export const Process: React.FC = () => {
                   onClick={() => setActiveStep(step.number)}
                   className={`p-6 transition-all duration-300 cursor-pointer ${
                     isActive
-                      ? 'bg-[#1A1918] text-[#FAF8F5] shadow-md border-l-4 border-[#C5B39C]'
-                      : 'bg-[#F3EFEA] text-[#2C2A29] hover:bg-[#E8E2D9] border-l-4 border-transparent'
+                      ? 'bg-[#999894] text-[#FAF8F5] shadow-md border-l-4 border-[#C5B39C]'
+                      : 'bg-[#F3EFEA] text-[#999894] hover:bg-[#E8E2D9] border-l-4 border-transparent'
                   }`}
                 >
                   <h3
                     style={{
                       ...getStyleObject(process.stepTitleStyle),
-                      color: isActive ? '#FAF8F5' : '#2C2A29'
+                      color: isActive ? '#FAF8F5' : '#999894'
                     }}
                     className="text-lg font-serif tracking-[0.1em] uppercase transition-colors"
                   >
@@ -94,14 +94,14 @@ export const Process: React.FC = () => {
                     ...getStyleObject(process.stepTitleStyle),
                     color: (process.stepTitleStyle?.fontColor && !['#ffffff', '#fff', '#faf8f5', 'white', 'rgb(255,255,255)', 'rgba(255,255,255,1)', '#fefefe', '#f9f9f9', '#f3efea'].includes(process.stepTitleStyle.fontColor.toLowerCase().trim()))
                       ? process.stepTitleStyle.fontColor
-                      : '#1A1918'
+                      : '#999894'
                   }}
-                  className="text-2xl sm:text-3xl font-serif text-[#1A1918] tracking-[0.08em] uppercase font-light"
+                  className="text-2xl sm:text-3xl font-serif text-[#999894] tracking-[0.08em] uppercase font-light"
                 >
                   {currentStep.title}
                 </h3>
 
-                <p id={`process-desc-${currentStep.number}`} className="text-base sm:text-lg text-[#3E3A37] font-serif leading-relaxed italic">
+                <p id={`process-desc-${currentStep.number}`} className="text-base sm:text-lg text-[#999894] font-serif leading-relaxed italic">
                   "{currentStep.description}"
                 </p>
 
@@ -109,7 +109,7 @@ export const Process: React.FC = () => {
                   <span>COMPREHENSIVE EVENT DESIGN</span>
                   <a
                     href="#contact"
-                    className="text-[#1A1918] font-medium uppercase hover:text-[#B59E83] border-b border-[#1A1918]"
+                    className="text-[#999894] font-medium uppercase hover:text-[#B59E83] border-b border-[#999894]"
                   >
                     Discuss Your Event →
                   </a>

@@ -8,7 +8,7 @@
 
   body {
     font-family: var(--font-sans);
-    color: #2C2A29;
+    color: #999894;
     background-color: #FAF8F5;
     overflow-x: hidden;
   }
@@ -38,7 +38,7 @@
 /* Custom minimalist focus outline */
 input:focus, textarea:focus, select:focus {
   outline: none;
-  border-color: #2C2A29 !important;
+  border-color: #999894 !important;
 }
 
 /* Smooth scrollbar styling */
