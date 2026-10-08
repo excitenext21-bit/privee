@@ -1,16 +1,16 @@
 import React from 'react';
 import { useSiteData, getStyleObject } from '../context/SiteContext';
 import { WatermarkOverlay } from './WatermarkOverlay';
-import approachOceanMandap from '../assets/images/approach_ocean_mandap.jpg';
+import contactMandapCouple from '../assets/images/contact_mandap_couple.jpg';
 import approachChandelierBallroom from '../assets/images/approach_chandelier_ballroom.jpg';
 
 export const Approach: React.FC = () => {
   const { data } = useSiteData();
   const { approach } = data;
 
-  const leftImageSrc = approach.leftImageUrl && !approach.leftImageUrl.includes('photo-1511285560929')
+  const leftImageSrc = approach.leftImageUrl && !approach.leftImageUrl.includes('photo-1511285560929') && !approach.leftImageUrl.includes('approach_ocean_mandap')
     ? approach.leftImageUrl
-    : approachOceanMandap;
+    : contactMandapCouple;
 
   const rightImageSrc = approach.rightImageUrl && !approach.rightImageUrl.includes('photo-1519225421980')
     ? approach.rightImageUrl

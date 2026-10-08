@@ -94,7 +94,7 @@ export const INITIAL_SITE_DATA: SiteData = {
     }
   },
   approach: {
-    leftImageUrl: approachOceanMandap,
+    leftImageUrl: contactMandapCouple,
     rightImageUrl: approachChandelierBallroom,
     eyebrow: 'OUR APPROACH',
     heading: 'Timeless design with a contemporary\nedge and unwavering flawless execution',
@@ -237,7 +237,7 @@ export const INITIAL_SITE_DATA: SiteData = {
   contact: {
     heading: "Let’s make your day\na pure dream–\nEven better than you imagined\nit could be",
     introText: "Reach out and share a few details about your day and we'll be in touch to book a complimentary consultation.\n\nThank you — we look forward to hearing from you!",
-    imageUrl: contactMandapCouple,
+    imageUrl: approachOceanMandap,
     email: 'info@designprivee.com',
     phone: '+91 98906 00039',
     address: '',
@@ -334,8 +334,8 @@ function migrateSiteData(raw: any): SiteData {
   }
 
   if (copy.approach) {
-    if (!copy.approach.leftImageUrl || copy.approach.leftImageUrl.includes('photo-1511285560929')) {
-      copy.approach = { ...copy.approach, leftImageUrl: approachOceanMandap };
+    if (!copy.approach.leftImageUrl || copy.approach.leftImageUrl.includes('photo-1511285560929') || copy.approach.leftImageUrl.includes('approach_ocean_mandap') || copy.approach.leftImageUrl === approachOceanMandap) {
+      copy.approach = { ...copy.approach, leftImageUrl: contactMandapCouple };
     }
     if (!copy.approach.rightImageUrl || copy.approach.rightImageUrl.includes('photo-1519225421980')) {
       copy.approach = { ...copy.approach, rightImageUrl: approachChandelierBallroom };
@@ -467,8 +467,8 @@ function migrateSiteData(raw: any): SiteData {
   }
 
   if (copy.contact) {
-    if (!copy.contact.imageUrl || copy.contact.imageUrl.includes('photo-1519741497674')) {
-      copy.contact = { ...copy.contact, imageUrl: contactMandapCouple };
+    if (!copy.contact.imageUrl || copy.contact.imageUrl.includes('photo-1519741497674') || copy.contact.imageUrl.includes('contact_mandap_couple') || copy.contact.imageUrl === contactMandapCouple) {
+      copy.contact = { ...copy.contact, imageUrl: approachOceanMandap };
     }
     if (!copy.contact.heading || copy.contact.heading === 'CONTACT US' || copy.contact.heading.includes('CONTACT US') || copy.contact.heading.includes("Let's make your day")) {
       copy.contact.heading = "Let’s make your day\na pure dream–\nEven better than you imagined\nit could be";

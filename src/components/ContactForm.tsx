@@ -4,16 +4,16 @@ import { useSiteData, getStyleObject } from '../context/SiteContext';
 import { CheckCircle, Instagram } from 'lucide-react';
 import { Logo } from './Logo';
 import { WatermarkOverlay } from './WatermarkOverlay';
-import contactMandapCouple from '../assets/images/contact_mandap_couple.jpg';
+import approachOceanMandap from '../assets/images/approach_ocean_mandap.jpg';
 
 export const ContactForm: React.FC = () => {
   const { data, addEnquiry, openCms } = useSiteData();
   const { contact } = data;
 
   const contactImageSrc =
-    contact.imageUrl && !contact.imageUrl.includes('photo-1519741497674')
+    contact.imageUrl && !contact.imageUrl.includes('photo-1519741497674') && !contact.imageUrl.includes('contact_mandap_couple')
       ? contact.imageUrl
-      : contactMandapCouple;
+      : approachOceanMandap;
 
   const [formData, setFormData] = useState<ContactFormData>({
     name: '',
