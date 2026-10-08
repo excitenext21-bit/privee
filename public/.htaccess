@@ -1,0 +1,48 @@
+# Hostinger Apache & LiteSpeed Configuration for Design Privée
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Handle Authorization Header
+  RewriteCond %{HTTP:Authorization} .
+  RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+  # Route API endpoints directly to PHP backend bridge for Hostinger Shared Web Hosting
+  RewriteRule ^api/site-data/?$ api.php?action=site-data [QSA,L]
+  RewriteRule ^api/upload/?$ api.php?action=upload [QSA,L]
+  RewriteRule ^api/db-sync/?$ api.php [QSA,L]
+  RewriteRule ^api/contact-submissions/?$ api.php?action=enquiry [QSA,L]
+  RewriteRule ^api/(.*)$ api.php?action=$1 [QSA,L]
+
+  # Allow direct access to existing files and directories (including /uploads/...)
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # Route all other frontend requests to index.html for Single Page App routing
+  RewriteRule ^ index.html [L]
+</IfModule>
+
+# Enable GZIP Compression for fast loading
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/plain text/html text/xml text/css application/xml application/xhtml+xml application/rss+xml application/javascript application/x-javascript application/json image/svg+xml
+</IfModule>
+
+# Security & Cache Control Headers
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set X-XSS-Protection "1; mode=block"
+  
+  # Cache static assets for 1 year
+  <FilesMatch "\.(ico|pdf|flv|jpg|jpeg|png|gif|webp|js|css|swf|svg)$">
+    Header set Cache-Control "max-age=31536000, public"
+  </FilesMatch>
+
+  # Prevent caching for API calls so live updates show up instantly
+  <FilesMatch "api\.php$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires 0
+  </FilesMatch>
+</IfModule>

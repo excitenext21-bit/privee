@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-serif: 'Cormorant Garamond', Georgia, serif;
+    --font-sans: 'Karla', system-ui, sans-serif;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    color: #2C2A29;
+    background-color: #FAF8F5;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, .font-serif-title {
+    font-family: var(--font-serif);
+  }
+}
+
+.font-serif {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+.font-sans {
+  font-family: 'Karla', system-ui, sans-serif;
+}
+
+/* Custom editorial image grayscale-hover transitions */
+.editorial-img {
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s ease;
+}
+
+.editorial-img:hover {
+  transform: scale(1.025);
+}
+
+/* Custom minimalist focus outline */
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: #2C2A29 !important;
+}
+
+/* Smooth scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF8F5;
+}
+::-webkit-scrollbar-thumb {
+  background: #D4C3B3;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #B59E83;
+}
