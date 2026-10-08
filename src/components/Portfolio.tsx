@@ -144,15 +144,25 @@ export const Portfolio: React.FC = () => {
               className="group flex flex-col justify-between shrink-0 w-[82vw] sm:w-[42vw] md:w-[35vw] lg:w-[32vw]"
             >
               <div className="relative overflow-hidden aspect-3/4 bg-[#EFECE6]">
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  draggable={false}
-                  className={`w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out pointer-events-none ${
-                    isGrayscale ? 'grayscale contrast-110' : ''
-                  }`}
-                  loading="lazy"
-                />
+                <picture>
+                  <source
+                    srcSet={item.image.replace(/\.(jpg|jpeg|png)$/i, '.webp')}
+                    type="image/webp"
+                  />
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    width={1080}
+                    height={1440}
+                    draggable={false}
+                    className={`w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out pointer-events-none ${
+                      isGrayscale ? 'grayscale contrast-110' : ''
+                    }`}
+                    loading={index < 2 ? 'eager' : 'lazy'}
+                    decoding={index < 2 ? 'sync' : 'async'}
+                    fetchPriority={index === 0 ? 'high' : 'auto'}
+                  />
+                </picture>
                 <WatermarkOverlay />
               </div>
             </div>
