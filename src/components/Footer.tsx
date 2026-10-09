@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { Instagram, Linkedin, Facebook, Mail, ArrowUp, CheckCircle, Send } from 'lucide-react';
 import { Logo } from './Logo';
+import { useSiteData } from '../context/SiteContext';
 
 export const Footer: React.FC = () => {
+  const { data } = useSiteData();
+  const instagramUrl = data?.contact?.instagramUrl || 'https://www.instagram.com/designpriveeofficial/?hl=en';
   const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
 
@@ -42,7 +45,7 @@ export const Footer: React.FC = () => {
               </span>
               <div className="flex items-center space-x-5">
                 <a
-                  href="https://instagram.com"
+                  href={instagramUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Instagram"

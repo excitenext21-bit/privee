@@ -251,7 +251,7 @@ export const INITIAL_SITE_DATA: SiteData = {
     email: 'info@designprivee.com',
     phone: '+91 98906 00039',
     address: '',
-    instagramUrl: 'https://instagram.com',
+    instagramUrl: 'https://www.instagram.com/designpriveeofficial/?hl=en',
     headingStyle: {
       fontSize: '18px',
       fontWeight: '400',
@@ -538,6 +538,9 @@ function migrateSiteData(raw: any): SiteData {
     copy.contact.email = 'info@designprivee.com';
     copy.contact.phone = '+91 98906 00039';
     copy.contact.address = '';
+    if (!copy.contact.instagramUrl || copy.contact.instagramUrl === 'https://instagram.com' || copy.contact.instagramUrl.includes('instagram.com/privee')) {
+      copy.contact.instagramUrl = 'https://www.instagram.com/designpriveeofficial/?hl=en';
+    }
     if (copy.contact.introStyle) {
       copy.contact = { ...copy.contact, introStyle: sanitizeStyle(copy.contact.introStyle) };
     }

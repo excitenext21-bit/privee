@@ -505,7 +505,7 @@ export const ContactForm: React.FC = () => {
             </a>
             <div className="flex items-center space-x-3 text-[#999894]">
               <a
-                href={contact.instagramUrl || "https://instagram.com"}
+                href={contact.instagramUrl || "https://www.instagram.com/designpriveeofficial/?hl=en"}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
