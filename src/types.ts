@@ -43,6 +43,7 @@ export interface TextStyle {
   fontStyle?: string;
   textTransform?: string;
   letterSpacing?: string;
+  lineHeight?: string;
   textAlign?: 'left' | 'center' | 'right' | 'justify';
 }
 

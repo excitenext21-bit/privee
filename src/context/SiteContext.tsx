@@ -948,6 +948,7 @@ export function getStyleObject(style?: TextStyle): React.CSSProperties {
   if (style.fontStyle) res.fontStyle = style.fontStyle;
   if (style.textTransform) res.textTransform = style.textTransform as any;
   if (style.letterSpacing) res.letterSpacing = style.letterSpacing;
+  if (style.lineHeight) res.lineHeight = style.lineHeight;
   if (style.textAlign) res.textAlign = style.textAlign;
   return res;
 }
