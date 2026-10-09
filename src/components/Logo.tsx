@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSiteData } from '../context/SiteContext';
-import uploadedLogo from '../assets/images/regenerated_image_1786437616291.png';
+import brandLogo from '../assets/images/brand_logo.png';
 import brandLogoWhite from '../assets/images/brand_logo_white.png';
 
 interface LogoProps {
@@ -21,7 +21,7 @@ export const Logo: React.FC<LogoProps> = ({
   const branding = data?.branding;
 
   // Determine logo source
-  let logoSrc = variant === 'dark' ? brandLogoWhite : uploadedLogo;
+  let logoSrc = variant === 'dark' ? brandLogoWhite : brandLogo;
 
   if (position === 'header' && branding?.headerLogoUrl) {
     logoSrc = branding.headerLogoUrl;
@@ -56,6 +56,12 @@ export const Logo: React.FC<LogoProps> = ({
         src={logoSrc}
         alt={branding?.siteTitle || "DESIGN PRIVÉE BY VIKRANTT"}
         referrerPolicy="no-referrer"
+        onError={(e) => {
+          const fallback = variant === 'dark' ? brandLogoWhite : brandLogo;
+          if (e.currentTarget.src !== fallback) {
+            e.currentTarget.src = fallback;
+          }
+        }}
         className="w-full h-auto object-contain transition-all duration-300 mx-auto"
         style={{
           width: customWidth ? `${customWidth}px` : undefined,
