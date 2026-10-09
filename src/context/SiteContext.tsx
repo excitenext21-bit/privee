@@ -181,7 +181,7 @@ export const INITIAL_SITE_DATA: SiteData = {
     }))
   },
   portfolio: {
-    title: 'PORTFOLIO',
+    title: 'Portfolio',
     subtitle: 'SIGNATURE WORK',
     globalGrayscale: false,
     items: PORTFOLIO_ITEMS.map((item) => ({
@@ -189,11 +189,16 @@ export const INITIAL_SITE_DATA: SiteData = {
       grayscale: false
     })),
     titleStyle: {
-      fontSize: '45px',
+      lineHeight: '1.25',
+      fontSize: '32px',
       fontWeight: '400',
-      fontColor: 'rgba(153,152,148,1)',
+      fontColor: 'rgb(153, 152, 148)',
       textDecoration: 'none',
-      fontStyle: 'normal'
+      fontStyle: 'normal',
+      textTransform: 'none',
+      letterSpacing: '0.02em',
+      textAlign: 'center',
+      fontFamily: "'Cormorant Garamond', serif"
     }
   },
   testimonials: {
@@ -220,11 +225,16 @@ export const INITIAL_SITE_DATA: SiteData = {
     heading: 'Here from the Very Start, Here for Every Part.',
     steps: PROCESS_STEPS,
     headingStyle: {
-      fontSize: '45px',
+      lineHeight: '1.25',
+      fontSize: '32px',
       fontWeight: '400',
-      fontColor: 'rgba(153,152,148,1)',
+      fontColor: 'rgb(153, 152, 148)',
       textDecoration: 'none',
-      fontStyle: 'normal'
+      fontStyle: 'normal',
+      textTransform: 'none',
+      letterSpacing: '0.02em',
+      textAlign: 'center',
+      fontFamily: "'Cormorant Garamond', serif"
     },
     stepTitleStyle: {
       fontSize: '22px',
@@ -441,7 +451,37 @@ function migrateSiteData(raw: any): SiteData {
     }
   }
 
+  if (copy.portfolio) {
+    if (copy.portfolio.title === 'PORTFOLIO') {
+      copy.portfolio.title = 'Portfolio';
+    }
+    if (copy.portfolio.titleStyle) {
+      if (
+        copy.portfolio.titleStyle.fontSize === '45px' ||
+        copy.portfolio.titleStyle.textTransform === 'uppercase' ||
+        !copy.portfolio.titleStyle.fontSize
+      ) {
+        copy.portfolio.titleStyle = {
+          ...copy.portfolio.titleStyle,
+          lineHeight: '1.25',
+          fontSize: '32px',
+          fontWeight: '400',
+          fontColor: 'rgb(153, 152, 148)',
+          textDecoration: 'none',
+          fontStyle: 'normal',
+          textTransform: 'none',
+          letterSpacing: '0.02em',
+          textAlign: 'center',
+          fontFamily: "'Cormorant Garamond', serif"
+        };
+      }
+    }
+  }
+
   if (copy.process) {
+    if (copy.process.heading === 'HERE FROM THE VERY START, HERE FOR EVERY PART.') {
+      copy.process.heading = 'Here from the Very Start, Here for Every Part.';
+    }
     if (copy.process.steps) {
       copy.process.steps = copy.process.steps.map((step: any) => {
         if (
@@ -461,8 +501,27 @@ function migrateSiteData(raw: any): SiteData {
     if (copy.process.stepTitleStyle) {
       copy.process = { ...copy.process, stepTitleStyle: sanitizeStyle(copy.process.stepTitleStyle) };
     }
-    if (copy.process.headingStyle && isDarkColor(copy.process.headingStyle.fontColor)) {
-      copy.process = { ...copy.process, headingStyle: sanitizeStyle(copy.process.headingStyle) };
+    if (copy.process.headingStyle) {
+      if (
+        copy.process.headingStyle.fontSize === '45px' ||
+        copy.process.headingStyle.textTransform === 'uppercase' ||
+        isDarkColor(copy.process.headingStyle.fontColor) ||
+        !copy.process.headingStyle.fontSize
+      ) {
+        copy.process.headingStyle = {
+          ...copy.process.headingStyle,
+          lineHeight: '1.25',
+          fontSize: '32px',
+          fontWeight: '400',
+          fontColor: 'rgb(153, 152, 148)',
+          textDecoration: 'none',
+          fontStyle: 'normal',
+          textTransform: 'none',
+          letterSpacing: '0.02em',
+          textAlign: 'center',
+          fontFamily: "'Cormorant Garamond', serif"
+        };
+      }
     }
   }
 

@@ -35,6 +35,18 @@ try {
     if (raw && raw.trim().length > 0) {
       inMemorySiteData = JSON.parse(raw);
     }
+  } else {
+    // Check fallback locations
+    const fallbackPublic = path.join(__dirname, 'public', 'data', 'site_content.json');
+    const fallbackDist = path.join(__dirname, 'dist', 'data', 'site_content.json');
+    const pathToUse = fs.existsSync(fallbackPublic) ? fallbackPublic : (fs.existsSync(fallbackDist) ? fallbackDist : null);
+    if (pathToUse) {
+      const raw = fs.readFileSync(pathToUse, 'utf-8');
+      if (raw && raw.trim().length > 0) {
+        inMemorySiteData = JSON.parse(raw);
+        fs.writeFileSync(SITE_DATA_FILE, raw, 'utf-8');
+      }
+    }
   }
 } catch (e) {
   console.warn('Initial disk cache load notice:', e);
@@ -124,6 +136,13 @@ async function initDatabaseTables() {
       inMemorySiteData = JSON.parse(rows[0].data_json);
       fs.writeFileSync(SITE_DATA_FILE, JSON.stringify(inMemorySiteData, null, 2), 'utf-8');
       console.log('Successfully auto-synced site content from MySQL database on boot!');
+    } else if (inMemorySiteData) {
+      // Auto-seed empty MySQL database with all initial content and images
+      await pool.query(
+        'INSERT INTO site_content (id, data_json) VALUES ("current_data", ?) ON DUPLICATE KEY UPDATE data_json = VALUES(data_json)',
+        [JSON.stringify(inMemorySiteData)]
+      );
+      console.log('Successfully auto-seeded complete website content & images into Hostinger MySQL database on boot!');
     }
   } catch (err: any) {
     console.warn('MySQL init tables notice:', err?.message);

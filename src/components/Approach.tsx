@@ -54,13 +54,13 @@ export const Approach: React.FC = () => {
   };
 
   return (
-    <section id="approach" className="pt-0 pl-0 pr-0 pb-16 sm:pb-20 md:pb-24 bg-[#EFECE6] w-full overflow-hidden">
+    <section id="approach" className="pt-0 pl-0 pr-0 pb-12 sm:pb-16 md:pb-24 bg-[#EFECE6] w-full overflow-hidden">
       <div className="w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-20 xl:gap-28 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-16 xl:gap-24 items-start">
           
           {/* Left Column Image */}
-          <div className="lg:col-span-5 lg:pt-12 xl:pt-16">
-            <div className="relative overflow-hidden w-full h-[500px] sm:h-[620px] md:h-[680px] lg:h-[720px]">
+          <div className="lg:col-span-5 lg:pt-10 xl:pt-14">
+            <div className="relative overflow-hidden w-full h-[360px] sm:h-[500px] md:h-[600px] lg:h-[700px] xl:h-[740px]">
               <img
                 key={`approach-left-${leftImageSrc}`}
                 src={leftImageSrc}
@@ -75,10 +75,10 @@ export const Approach: React.FC = () => {
           {/* Right Column Image & Editorial Typography */}
           <div className="lg:col-span-7 flex flex-col justify-between space-y-8 sm:space-y-12 pr-0 pl-0 lg:pl-0">
             
-            {/* Typography Block - on mobile appears first in right column (order-1), on desktop appears second (lg:order-2) */}
-            <div className="order-1 lg:order-2 text-center px-4 sm:px-10 lg:px-12 pt-2 sm:pt-4 pb-2 lg:pb-4 max-w-2xl mx-auto">
+            {/* Typography Block */}
+            <div className="order-1 lg:order-2 text-center px-4 sm:px-8 lg:px-12 pt-2 sm:pt-4 pb-2 lg:pb-4 max-w-2xl mx-auto">
               {/* Eyebrow */}
-              <span className="block text-[11px] sm:text-xs uppercase tracking-[0.3em] font-sans text-[#A8A298] font-normal mb-4 sm:mb-5">
+              <span className="block text-[10px] sm:text-xs uppercase tracking-[0.25em] sm:tracking-[0.3em] font-sans text-[#A8A298] font-normal mb-3 sm:mb-5">
                 {approach.eyebrow}
               </span>
 
@@ -92,13 +92,13 @@ export const Approach: React.FC = () => {
                   color: 'rgba(153, 152, 148, 1)',
                   textTransform: 'none',
                   letterSpacing: '0.02em',
-                  fontSize: '32px',
+                  fontSize: 'clamp(22px, 4vw, 32px)',
                   textAlign: 'center',
                   fontFamily: "'Cormorant Garamond', serif",
                   fontWeight: 400,
                   fontStyle: 'normal'
                 }}
-                className="mb-4 sm:mb-5 text-[24px] sm:text-[28px] md:text-[32px] lg:text-[32px] whitespace-pre-line"
+                className="mb-4 sm:mb-5 whitespace-pre-line"
               >
                 {renderHeadingWithItalicAnd(displayHeading)}
               </h2>
@@ -107,7 +107,7 @@ export const Approach: React.FC = () => {
               {displaySubheading && displaySubheading.trim() !== '' ? (
                 <p
                   style={getStyleObject(approach.subheadingStyle)}
-                  className="font-serif italic text-base sm:text-xl md:text-[22px] text-[#A8A298] font-light mb-6 sm:mb-8"
+                  className="font-serif italic text-sm sm:text-lg md:text-[20px] text-[#A8A298] font-light mb-4 sm:mb-6"
                 >
                   {displaySubheading}
                 </p>
@@ -117,7 +117,7 @@ export const Approach: React.FC = () => {
               <p
                 id="approach-body"
                 style={getStyleObject(approach.paragraphStyle)}
-                className="font-sans text-xs sm:text-sm text-[#7A756C] leading-relaxed max-w-xl mx-auto mb-8 sm:mb-10 font-normal"
+                className="font-sans text-xs sm:text-sm text-[#7A756C] leading-relaxed max-w-xl mx-auto mb-6 sm:mb-10 font-normal px-2 sm:px-0"
               >
                 {approach.paragraph}
               </p>
@@ -127,15 +127,15 @@ export const Approach: React.FC = () => {
                 <a
                   href={approach.ctaUrl || '#about'}
                   onClick={handleDetailsClick}
-                  className="inline-block text-[11px] sm:text-xs uppercase tracking-[0.25em] font-sans text-[#7A756C] hover:text-[#999894] border-b border-[#C8C2B8] hover:border-[#999894] pb-1 transition-colors cursor-pointer"
+                  className="inline-block text-[10px] sm:text-xs uppercase tracking-[0.22em] sm:tracking-[0.25em] font-sans text-[#7A756C] hover:text-[#999894] border-b border-[#C8C2B8] hover:border-[#999894] pb-1 transition-colors cursor-pointer"
                 >
                   {approach.ctaText}
                 </a>
               </div>
             </div>
 
-            {/* Second Image - on mobile appears after content (order-2), on desktop appears at the top (lg:order-1) */}
-            <div className="order-2 lg:order-1 relative overflow-hidden w-full h-[280px] sm:h-[360px] md:h-[400px] lg:h-[440px]">
+            {/* Second Image */}
+            <div className="order-2 lg:order-1 relative overflow-hidden w-full h-[240px] sm:h-[320px] md:h-[380px] lg:h-[440px]">
               <img
                 key={`approach-right-${rightImageSrc}`}
                 src={rightImageSrc}

@@ -78,7 +78,7 @@ export const AboutVikrantt: React.FC = () => {
   };
 
   return (
-    <section id="about" className="relative py-20 md:py-28 lg:py-36 overflow-hidden bg-[#FAF8F5]">
+    <section id="about" className="relative py-14 sm:py-20 md:py-28 lg:py-36 overflow-hidden bg-[#FAF8F5]">
       {/* Background Image: starts bright at top with white bokeh, matching 1st reference image */}
       <div className="absolute inset-0 z-0">
         <img
@@ -88,7 +88,7 @@ export const AboutVikrantt: React.FC = () => {
         />
       </div>
 
-      <div className="max-w-6xl mx-auto px-6 sm:px-12 relative z-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-8 md:px-12 relative z-10">
         <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12 lg:gap-16">
           
           {/* Left Column: Portrait & Heading */}
@@ -96,11 +96,11 @@ export const AboutVikrantt: React.FC = () => {
             <h3
               style={{
                 fontFamily: "'Cormorant Garamond', 'Didot', serif",
-                fontSize: '36px',
+                fontSize: 'clamp(26px, 4.5vw, 36px)',
                 fontWeight: 400,
                 color: '#999894',
                 lineHeight: 1.25,
-                marginBottom: '1.25rem',
+                marginBottom: '1rem',
                 textAlign: 'center',
                 ...getStyleObject(vikrantt.portraitHeadingStyle)
               }}
@@ -120,12 +120,12 @@ export const AboutVikrantt: React.FC = () => {
 
           {/* Right Column: Solid Taupe Quote Box & CTA */}
           <div className="w-full md:w-1/2 max-w-[460px] shrink-0 flex flex-col items-start">
-            <div className="w-full bg-[#999894] p-8 sm:p-12 md:p-14 lg:p-16 text-left shadow-lg">
+            <div className="w-full bg-[#999894] p-6 sm:p-10 md:p-12 lg:p-16 text-left shadow-lg">
               <p
                 style={{
                   color: 'rgba(247, 244, 240, 1)',
                   lineHeight: 1.4,
-                  fontSize: '28px',
+                  fontSize: 'clamp(18px, 3.8vw, 28px)',
                   textAlign: 'left',
                   fontFamily: "'Nanum Myeongjo', serif",
                   fontWeight: 400,
@@ -137,11 +137,11 @@ export const AboutVikrantt: React.FC = () => {
             </div>
 
             {/* LEARN MORE ABOUT VIKRANTT Link with underline matching attached image */}
-            <div className="mt-8 w-full flex justify-start text-left">
+            <div className="mt-6 sm:mt-8 w-full flex justify-start text-left">
               <button
                 type="button"
                 onClick={() => setIsBioModalOpen(true)}
-                className="inline-block text-[11px] sm:text-xs tracking-[0.24em] text-[#F5F2ED] uppercase border-b border-[#F5F2ED] pb-1 hover:text-white hover:border-white transition-colors font-sans cursor-pointer focus:outline-none"
+                className="inline-block text-[10px] sm:text-xs tracking-[0.2em] sm:tracking-[0.24em] text-[#F5F2ED] uppercase border-b border-[#F5F2ED] pb-1 hover:text-white hover:border-white transition-colors font-sans cursor-pointer focus:outline-none"
               >
                 LEARN MORE ABOUT VIKRANTT
               </button>
@@ -163,7 +163,7 @@ export const AboutVikrantt: React.FC = () => {
           }}
         >
           <div
-            className="relative w-full max-w-4xl bg-[#FAF8F5] shadow-2xl overflow-hidden flex flex-col md:flex-row border border-[#E8E2D9]"
+            className="relative w-full max-w-4xl bg-[#FAF8F5] shadow-2xl overflow-y-auto max-h-[90vh] md:overflow-hidden flex flex-col md:flex-row border border-[#E8E2D9]"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close Button with X Icon */}
@@ -171,7 +171,7 @@ export const AboutVikrantt: React.FC = () => {
               type="button"
               onClick={() => setIsBioModalOpen(false)}
               aria-label="Close bio popup"
-              className="absolute top-4 right-4 sm:top-5 sm:right-5 text-[#999894] hover:text-[#1A1918] p-2 transition-colors z-30 focus:outline-none group cursor-pointer"
+              className="absolute top-3 right-3 sm:top-5 sm:right-5 text-[#999894] hover:text-[#1A1918] p-2 transition-colors z-30 focus:outline-none group cursor-pointer bg-white/70 md:bg-transparent rounded-full"
             >
               <svg
                 className="w-5 h-5 sm:w-6 sm:h-6 stroke-current transition-transform group-hover:rotate-90 duration-300"
@@ -184,7 +184,7 @@ export const AboutVikrantt: React.FC = () => {
             </button>
 
             {/* Modal Left Column: Portrait Image */}
-            <div className="w-full md:w-[38%] shrink-0 relative bg-[#EAEAEA] aspect-[3/4] md:aspect-auto md:min-h-[460px]">
+            <div className="w-full md:w-[38%] shrink-0 relative bg-[#EAEAEA] aspect-[4/3] sm:aspect-[16/9] md:aspect-auto md:min-h-[460px]">
               <img
                 src={vikrantt.modalPortraitUrl || portraitSrc}
                 alt="Vikrantt - Owner & Designer"
@@ -193,8 +193,8 @@ export const AboutVikrantt: React.FC = () => {
               <WatermarkOverlay />
             </div>
 
-            {/* Modal Right Column: Editorial Bio Content - NO VERTICAL SCROLL */}
-            <div className="w-full md:w-[62%] p-6 sm:p-8 md:p-10 lg:p-12 flex flex-col justify-between overflow-hidden">
+            {/* Modal Right Column: Editorial Bio Content */}
+            <div className="w-full md:w-[62%] p-5 sm:p-8 md:p-10 lg:p-12 flex flex-col justify-between overflow-y-auto">
               <div>
                 {/* Name Title */}
                 <h3

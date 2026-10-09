@@ -66,19 +66,30 @@ export const Header: React.FC<HeaderProps> = ({ activeSection }) => {
     ...navCustomStyle
   };
 
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
+
   return (
     <header
       id="main-header"
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-white ${
-        isScrolled ? 'py-3.5 shadow-2xs' : 'py-5'
+        isScrolled ? 'py-3 shadow-xs' : 'py-4 sm:py-5'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between md:justify-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-12 flex items-center justify-between md:justify-center">
         
         {/* Desktop Header: Centered Grouped Navigation with Logo */}
-        <div className="hidden md:flex items-center space-x-8 lg:space-x-12">
+        <div className="hidden md:flex items-center space-x-4 md:space-x-6 lg:space-x-10 xl:space-x-12">
           {/* Left Side Links */}
-          <nav className="flex items-center space-x-8 lg:space-x-10">
+          <nav className="flex items-center space-x-4 md:space-x-6 lg:space-x-8 xl:space-x-10">
             {leftNavLinks.map((link) => {
               const isActive = activeSection === link.id || activeSection === link.href.replace('#', '');
               return (
@@ -90,7 +101,7 @@ export const Header: React.FC<HeaderProps> = ({ activeSection }) => {
                     ...baseNavLinkStyle,
                     color: isActive ? '#999894' : (navCustomStyle.color || '#999894'),
                   }}
-                  className="uppercase tracking-[0.28em] font-sans font-medium hover:text-[#999894] cursor-pointer"
+                  className="uppercase tracking-[0.18em] lg:tracking-[0.25em] xl:tracking-[0.28em] text-[11px] lg:text-[12px] font-sans font-medium hover:text-[#999894] cursor-pointer whitespace-nowrap"
                 >
                   {link.name}
                 </a>
@@ -100,14 +111,14 @@ export const Header: React.FC<HeaderProps> = ({ activeSection }) => {
 
           {/* Center Brand Logo */}
           <div
-            className="text-center flex justify-center items-center cursor-pointer transition-opacity hover:opacity-85 px-4 lg:px-8"
+            className="text-center flex justify-center items-center cursor-pointer transition-opacity hover:opacity-85 px-2 md:px-4 lg:px-8 shrink-0"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           >
-            <Logo position="header" className="py-0.5" />
+            <Logo position="header" className="py-0.5 max-w-[150px] sm:max-w-[180px] lg:max-w-none" />
           </div>
 
           {/* Right Side Links */}
-          <nav className="flex items-center space-x-8 lg:space-x-10">
+          <nav className="flex items-center space-x-4 md:space-x-6 lg:space-x-8 xl:space-x-10">
             {rightNavLinks.map((link) => {
               const isActive = activeSection === link.id || activeSection === link.href.replace('#', '');
               return (
@@ -119,7 +130,7 @@ export const Header: React.FC<HeaderProps> = ({ activeSection }) => {
                     ...baseNavLinkStyle,
                     color: isActive ? '#999894' : (navCustomStyle.color || '#999894'),
                   }}
-                  className="uppercase tracking-[0.28em] font-sans font-medium hover:text-[#999894] cursor-pointer"
+                  className="uppercase tracking-[0.18em] lg:tracking-[0.25em] xl:tracking-[0.28em] text-[11px] lg:text-[12px] font-sans font-medium hover:text-[#999894] cursor-pointer whitespace-nowrap"
                 >
                   {link.name}
                 </a>
@@ -131,7 +142,7 @@ export const Header: React.FC<HeaderProps> = ({ activeSection }) => {
         {/* Mobile Header Bar */}
         <div className="flex md:hidden items-center justify-between w-full">
           <div
-            className="cursor-pointer transition-opacity hover:opacity-85"
+            className="cursor-pointer transition-opacity hover:opacity-85 max-w-[140px] sm:max-w-[170px]"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           >
             <Logo position="header" className="py-0.5" />
@@ -141,7 +152,7 @@ export const Header: React.FC<HeaderProps> = ({ activeSection }) => {
             id="mobile-menu-toggle"
             aria-label="Toggle navigation menu"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 text-[#999894] focus:outline-hidden"
+            className="p-2 text-[#999894] focus:outline-hidden cursor-pointer"
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -151,23 +162,23 @@ export const Header: React.FC<HeaderProps> = ({ activeSection }) => {
 
       {/* Mobile Navigation Menu Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden fixed inset-0 top-[65px] bg-white z-40 px-8 py-12 flex flex-col justify-between border-t border-[#E8E2D9] animate-fadeIn">
-          <div className="flex flex-col space-y-8 text-center pt-6">
+        <div className="md:hidden fixed inset-x-0 bottom-0 top-[60px] sm:top-[70px] bg-white z-40 px-6 sm:px-8 py-8 sm:py-12 flex flex-col justify-between border-t border-[#E8E2D9] animate-fadeIn overflow-y-auto">
+          <div className="flex flex-col space-y-7 text-center pt-4 my-auto">
             {navItems.map((link) => (
               <a
                 key={link.id || link.name}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
                 style={baseNavLinkStyle}
-                className="text-sm tracking-[0.3em] font-sans hover:text-[#999894] uppercase transition-colors"
+                className="text-sm tracking-[0.3em] font-sans hover:text-[#999894] uppercase transition-colors py-1"
               >
                 {link.name}
               </a>
             ))}
           </div>
 
-          <div className="text-center pt-10 border-t border-[#E8E2D9]">
-            <p className="text-xs tracking-[0.25em] text-[#78716C] uppercase mb-2 font-sans">
+          <div className="text-center pt-8 border-t border-[#E8E2D9] shrink-0">
+            <p className="text-xs tracking-[0.22em] text-[#78716C] uppercase mb-1.5 font-sans">
               {BRAND_INFO.tagline}
             </p>
             <p className="text-xs text-[#9A8F85] font-serif italic">

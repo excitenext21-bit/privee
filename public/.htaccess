@@ -33,6 +33,7 @@
   Header set X-Content-Type-Options "nosniff"
   Header set X-Frame-Options "SAMEORIGIN"
   Header set X-XSS-Protection "1; mode=block"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
   
   # Cache static assets for 1 year
   <FilesMatch "\.(ico|pdf|flv|jpg|jpeg|png|gif|webp|js|css|swf|svg)$">
@@ -45,4 +46,31 @@
     Header set Pragma "no-cache"
     Header set Expires 0
   </FilesMatch>
+</IfModule>
+
+# Block access to hidden files (.env, .git, .htaccess)
+<FilesMatch "^\.">
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+</FilesMatch>
+
+# Block access to sensitive database dumps, logs, and config files
+<FilesMatch "\.(sql|log|ini|sh|bak|config|env|md)$">
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+</FilesMatch>
+
+# Block direct access to internal data and json storage
+<IfModule mod_rewrite.c>
+  RewriteRule ^(data|public/data)/.*\.json$ - [F,L]
 </IfModule>

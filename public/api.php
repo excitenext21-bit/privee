@@ -120,8 +120,16 @@ if ($action === 'upload') {
         exit;
     }
 
+    $allowedExtensions = ['jpg', 'jpeg', 'png', 'webp', 'mp4'];
+    if (!in_array(strtolower($ext), $allowedExtensions, true)) {
+        $ext = 'jpg';
+    }
+
     $cleanName = preg_replace('/[^a-zA-Z0-9_\-]/', '_', pathinfo($filename, PATHINFO_FILENAME));
-    $safeFileName = time() . '_' . substr(md5(uniqid()), 0, 6) . '_' . $cleanName . '.' . $ext;
+    if (empty($cleanName)) {
+        $cleanName = 'media';
+    }
+    $safeFileName = time() . '_' . substr(md5(uniqid('', true)), 0, 8) . '_' . $cleanName . '.' . $ext;
     $filePath = $uploadsDir . '/' . $safeFileName;
 
     if (file_put_contents($filePath, $decoded)) {
@@ -156,6 +164,24 @@ if ($action === 'load' || $action === 'site-data') {
                     'message' => 'Site data loaded from Hostinger MySQL database.'
                 ]);
                 exit;
+            } else {
+                // Table is empty: check if default site_content.json exists and auto-seed!
+                $seedFile = file_exists($siteDataFile) ? $siteDataFile : (__DIR__ . '/data/site_content.json');
+                if (file_exists($seedFile)) {
+                    $rawSeed = file_get_contents($seedFile);
+                    if (!empty($rawSeed)) {
+                        $seedStmt = $pdo->prepare("INSERT INTO site_content (id, data_json) VALUES ('current_data', ?) ON DUPLICATE KEY UPDATE data_json = VALUES(data_json)");
+                        $seedStmt->execute([$rawSeed]);
+                        $decodedSeed = json_decode($rawSeed, true);
+                        echo json_encode([
+                            'success' => true,
+                            'source' => 'mysql_seeded',
+                            'data' => $decodedSeed,
+                            'message' => 'Hostinger MySQL database auto-seeded with all site images and content!'
+                        ]);
+                        exit;
+                    }
+                }
             }
         } catch (Exception $e) {
             // fallback to disk

@@ -71,22 +71,22 @@ export const ContactForm: React.FC = () => {
     <section
       id="contact"
       style={{ backgroundColor: '#ECEAE5' }}
-      className="pt-14 sm:pt-20 pb-8 sm:pb-12 overflow-hidden"
+      className="pt-12 sm:pt-20 pb-8 sm:pb-12 overflow-hidden"
     >
-      <div className="w-full pl-[3vw] sm:pl-[4vw] pr-[5vw] sm:pr-[8vw] max-w-[1440px] mx-auto">
+      <div className="w-full px-4 sm:px-8 md:px-12 max-w-[1440px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
           
           {/* Left Column */}
-          <div className="lg:col-span-7 flex flex-col items-start text-left">
+          <div className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left">
             
             {/* Poem Title Block - Centered directly over the photo */}
-            <div className="w-full max-w-[440px] lg:max-w-[480px] mb-8 sm:mb-12 text-center">
+            <div className="w-full max-w-[440px] lg:max-w-[480px] mb-6 sm:mb-10 text-center mx-auto lg:mx-0">
               <div
                 style={{
                   color: 'rgba(0, 0, 0, 0.5)',
                   lineHeight: 1.8,
                   letterSpacing: '0.02em',
-                  fontSize: '18px',
+                  fontSize: 'clamp(16px, 3.5vw, 18px)',
                   textAlign: 'center',
                   fontFamily: "'Nanum Myeongjo', serif",
                   fontWeight: 400,
@@ -109,7 +109,7 @@ export const ContactForm: React.FC = () => {
             </div>
 
             {/* Photo & Contact Details */}
-            <div className="relative w-full max-w-[440px] lg:max-w-[480px] pl-0 ml-0 mr-auto mb-10 lg:mb-0">
+            <div className="relative w-full max-w-[440px] lg:max-w-[480px] mx-auto lg:mx-0 mb-8 lg:mb-0">
               <div className="relative w-full aspect-[4/5] overflow-hidden shadow-xs bg-[#EFECE6]">
                 <img
                   src={contactImageSrc}
@@ -127,7 +127,7 @@ export const ContactForm: React.FC = () => {
                   fontSize: '13px',
                   lineHeight: 1.8
                 }}
-                className="lg:absolute lg:left-full lg:ml-6 lg:bottom-1 w-auto min-w-[240px] text-left mt-6 lg:mt-0 z-10"
+                className="lg:absolute lg:left-full lg:ml-6 lg:bottom-1 w-auto min-w-[200px] text-center lg:text-left mt-4 sm:mt-6 lg:mt-0 z-10"
               >
                 <p>
                   E:{' '}
@@ -155,7 +155,7 @@ export const ContactForm: React.FC = () => {
           </div>
 
           {/* Right Column: Intro text & Form */}
-          <div className="lg:col-span-5 flex flex-col justify-start pt-1 max-w-[420px] lg:max-w-[440px] w-full lg:ml-auto">
+          <div className="lg:col-span-5 flex flex-col justify-start pt-1 max-w-[440px] w-full mx-auto lg:mx-0 lg:ml-auto">
             
             {/* Intro Text */}
             <div className="mb-7 text-left">
@@ -426,14 +426,14 @@ export const ContactForm: React.FC = () => {
         </div>
 
         {/* Bottom Navigation center-aligned */}
-        <div className="mt-14 sm:mt-16 pt-8 sm:pt-10 grid grid-cols-1 md:grid-cols-3 items-center text-center gap-6 md:gap-4 max-w-5xl mx-auto">
+        <div className="mt-12 sm:mt-16 pt-8 sm:pt-10 flex flex-col md:flex-row items-center justify-between text-center gap-5 sm:gap-6 md:gap-4 max-w-5xl mx-auto">
           {/* Left Navigation Links */}
-          <div className="flex items-center justify-center md:justify-end space-x-8 lg:space-x-10">
+          <div className="flex items-center justify-center space-x-6 sm:space-x-8 lg:space-x-10 order-2 md:order-1">
             <a
               href="#portfolio"
               style={{
                 fontFamily: "'Karla', sans-serif",
-                fontSize: '12px',
+                fontSize: '11px',
                 letterSpacing: '0.22em',
                 color: 'rgba(153,152,148,1)',
                 textTransform: 'uppercase'
@@ -446,7 +446,7 @@ export const ContactForm: React.FC = () => {
               href="#about"
               style={{
                 fontFamily: "'Karla', sans-serif",
-                fontSize: '12px',
+                fontSize: '11px',
                 letterSpacing: '0.22em',
                 color: 'rgba(153,152,148,1)',
                 textTransform: 'uppercase'
@@ -459,7 +459,7 @@ export const ContactForm: React.FC = () => {
 
           {/* Center Brand Logo with vertical lines */}
           <div
-            className="flex items-center justify-center space-x-5 sm:space-x-7 md:space-x-8 cursor-pointer transition-opacity hover:opacity-85 my-1 md:my-0"
+            className="flex items-center justify-center space-x-4 sm:space-x-6 md:space-x-8 cursor-pointer transition-opacity hover:opacity-85 my-1 md:my-0 order-1 md:order-2"
             onClick={(e) => {
               // If user clicks with Alt key or triple-clicks, discretely open Admin CMS
               if (e.altKey || e.detail === 3) {
@@ -470,18 +470,18 @@ export const ContactForm: React.FC = () => {
             }}
             title="Design Privée"
           >
-            <div className="h-7 sm:h-9 md:h-10 w-[1px] bg-[#C8C2B8] shrink-0" />
-            <Logo className="w-[103px] sm:w-[126px] md:w-[138px] py-0.5 mx-auto" />
-            <div className="h-7 sm:h-9 md:h-10 w-[1px] bg-[#C8C2B8] shrink-0" />
+            <div className="h-6 sm:h-8 md:h-10 w-[1px] bg-[#C8C2B8] shrink-0" />
+            <Logo className="w-[96px] sm:w-[120px] md:w-[138px] py-0.5 mx-auto" />
+            <div className="h-6 sm:h-8 md:h-10 w-[1px] bg-[#C8C2B8] shrink-0" />
           </div>
 
           {/* Right Navigation Links */}
-          <div className="flex items-center justify-center md:justify-start space-x-6 lg:space-x-8">
+          <div className="flex items-center justify-center space-x-5 sm:space-x-6 lg:space-x-8 order-3">
             <a
               href="#services"
               style={{
                 fontFamily: "'Karla', sans-serif",
-                fontSize: '12px',
+                fontSize: '11px',
                 letterSpacing: '0.22em',
                 color: 'rgba(153,152,148,1)',
                 textTransform: 'uppercase'
@@ -494,7 +494,7 @@ export const ContactForm: React.FC = () => {
               href="#contact"
               style={{
                 fontFamily: "'Karla', sans-serif",
-                fontSize: '12px',
+                fontSize: '11px',
                 letterSpacing: '0.22em',
                 color: 'rgba(153,152,148,1)',
                 textTransform: 'uppercase'
@@ -509,7 +509,7 @@ export const ContactForm: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
-                className="hover:text-[#999894] transition-colors"
+                className="hover:text-[#999894] transition-colors p-1"
               >
                 <Instagram size={14} />
               </a>

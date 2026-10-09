@@ -47,7 +47,7 @@ export const Testimonials: React.FC = () => {
       {/* Top Off-White Block for Testimonial Quotes */}
       <div
         style={{ backgroundColor: 'rgba(247,244,240,0.6)' }}
-        className="w-full pt-12 sm:pt-16 pb-14 sm:pb-20 px-6 sm:px-12 md:px-16"
+        className="w-full pt-10 sm:pt-16 pb-12 sm:pb-20 px-4 sm:px-8 md:px-16"
       >
         <div className="max-w-6xl mx-auto">
           {/* Testimonial Quote Block */}
@@ -68,14 +68,14 @@ export const Testimonials: React.FC = () => {
                 className="flex flex-col justify-between h-full w-full"
               >
                 {/* Top Headline Quote */}
-                <div className="mb-6 sm:mb-8">
+                <div className="mb-4 sm:mb-8">
                   <h3
                     style={{
                       fontFamily: "'Cormorant Garamond', 'Didot', 'Playfair Display', serif",
                       color: 'rgba(153,152,148,1)',
-                      lineHeight: 1.2,
-                      letterSpacing: '0.05em',
-                      fontSize: '26px',
+                      lineHeight: 1.25,
+                      letterSpacing: '0.04em',
+                      fontSize: 'clamp(20px, 3.8vw, 26px)',
                       textAlign: 'left',
                       fontWeight: 400,
                       fontStyle: 'italic',
@@ -88,26 +88,25 @@ export const Testimonials: React.FC = () => {
                 </div>
 
                 {/* Detailed Paragraph Block + Client Attribution */}
-                <div className="max-w-2xl ml-auto text-right">
+                <div className="max-w-2xl text-left sm:text-right sm:ml-auto">
                   <p
                     style={{
                       fontFamily: "'Nanum Myeongjo', serif",
                       color: 'rgba(153,152,148,1)',
                       textTransform: 'none',
-                      lineHeight: 1.5,
+                      lineHeight: 1.6,
                       letterSpacing: '0.02em',
-                      fontSize: '15px',
-                      textAlign: 'right',
+                      fontSize: 'clamp(13px, 2.5vw, 15px)',
                       fontWeight: 400,
                       fontStyle: 'normal'
                     }}
-                    className="mb-6 whitespace-pre-line"
+                    className="mb-4 sm:mb-6 whitespace-pre-line text-left sm:text-right"
                   >
                     {activeTestimonial.detailedQuote || activeTestimonial.quote}
                   </p>
 
                   {/* Client Name & Role */}
-                  <p className="text-[11px] sm:text-xs uppercase tracking-[0.25em] font-sans font-medium text-[#8C867B]">
+                  <p className="text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.25em] font-sans font-medium text-[#8C867B] text-left sm:text-right">
                     {activeTestimonial.clientName.toUpperCase()} &nbsp;|&nbsp; {activeTestimonial.roleOrRelation}
                   </p>
                 </div>
@@ -118,12 +117,12 @@ export const Testimonials: React.FC = () => {
       </div>
 
       {/* Bottom Pure White Block */}
-      <div className="w-full bg-white pb-20 sm:pb-28 px-6 sm:px-12 md:px-16">
+      <div className="w-full bg-white pb-14 sm:pb-24 px-4 sm:px-8 md:px-16">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-start">
             
             {/* Left Column Image */}
-            <div className="md:col-span-6 flex justify-center md:justify-start -mt-12 sm:-mt-16 md:-mt-20">
+            <div className="md:col-span-6 flex justify-center md:justify-start -mt-6 sm:-mt-12 md:-mt-20">
               <div className="relative w-full max-w-[460px] aspect-[4/5] overflow-hidden shadow-sm bg-[#EFECE6] z-10">
                 <img
                   src={displayImage}
@@ -135,41 +134,40 @@ export const Testimonials: React.FC = () => {
             </div>
 
             {/* Right Column Heading */}
-            <div className="md:col-span-6 flex flex-col justify-center max-w-md mx-auto md:mx-0 md:pl-6 pt-10 sm:pt-14 md:pt-20">
+            <div className="md:col-span-6 flex flex-col justify-center max-w-md mx-auto md:mx-0 md:pl-6 pt-6 sm:pt-10 md:pt-20">
               <h3
                 style={{
                   letterSpacing: '0.02em',
-                  fontSize: '30px',
+                  fontSize: 'clamp(22px, 4.5vw, 30px)',
                   fontFamily: "'Cormorant Garamond', serif",
                   fontWeight: 400,
                   fontStyle: 'normal',
                   color: 'rgba(153, 152, 148, 1)',
-                  lineHeight: 1.2,
+                  lineHeight: 1.25,
                   ...getStyleObject(testimonials.headingStyle)
                 }}
-                className="text-left mb-4"
+                className="text-left mb-3 sm:mb-4"
               >
                 This is <i style={{ fontStyle: 'italic', fontFamily: "'Cormorant Garamond', serif" }}>your</i> moment.
               </h3>
 
-              <div className="text-right w-full">
+              <div className="text-left sm:text-right w-full">
                 <p
                   style={{
                     textTransform: 'uppercase',
                     lineHeight: 1.8,
-                    letterSpacing: '0.1em',
-                    fontSize: '14px',
-                    textAlign: 'right',
+                    letterSpacing: '0.08em',
+                    fontSize: 'clamp(12px, 2.5vw, 14px)',
                     fontFamily: "'Karla', sans-serif",
                     fontWeight: 400,
                     fontStyle: 'normal',
                     color: 'rgba(153, 152, 148, 1)'
                   }}
-                  className="w-full"
+                  className="w-full text-left sm:text-right"
                 >
                   We simply make it what you’ve
-                  <br />
-                  always dreamt it would be.
+                  <br className="hidden sm:inline" />
+                  {' '}always dreamt it would be.
                 </p>
               </div>
             </div>

@@ -46,6 +46,7 @@ export const AdminCmsModal: React.FC = () => {
   const [password, setPassword] = useState('');
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
+  const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
 
   if (!isCmsOpen) return null;
 
@@ -170,66 +171,96 @@ export const AdminCmsModal: React.FC = () => {
   return (
     <div className="fixed inset-0 z-50 bg-[#1A1918]/90 backdrop-blur-sm flex flex-col overflow-hidden animate-fadeIn font-sans">
       {/* Top CMS Header Bar */}
-      <header className="bg-[#1A1918] text-[#FAF8F5] px-6 py-4 border-b border-white/10 flex items-center justify-between shrink-0">
-        <div className="flex items-center space-x-3">
-          <div className="w-8 h-8 bg-[#C5B39C] text-[#1A1918] rounded flex items-center justify-center font-bold font-serif">
+      <header className="bg-[#1A1918] text-[#FAF8F5] px-4 sm:px-6 py-3.5 sm:py-4 border-b border-white/10 flex items-center justify-between shrink-0">
+        <div className="flex items-center space-x-2.5 sm:space-x-3">
+          <button
+            type="button"
+            onClick={() => setMobileSidebarOpen(!mobileSidebarOpen)}
+            className="md:hidden p-1.5 text-[#C5B39C] hover:bg-white/10 rounded cursor-pointer"
+            title="Toggle Sections Menu"
+          >
+            <Grid size={18} />
+          </button>
+          <div className="w-7 h-7 sm:w-8 sm:h-8 bg-[#C5B39C] text-[#1A1918] rounded flex items-center justify-center font-bold font-serif text-xs sm:text-sm">
             DP
           </div>
           <div>
-            <h1 className="text-sm font-serif tracking-widest uppercase font-bold text-white flex items-center gap-2">
+            <h1 className="text-xs sm:text-sm font-serif tracking-widest uppercase font-bold text-white flex items-center gap-1.5 sm:gap-2">
               <span>DESIGN PRIVÉE</span>
-              <span className="text-[10px] bg-[#C5B39C]/20 text-[#C5B39C] px-2 py-0.5 rounded font-mono font-normal">
-                FULL VIEW ADMIN CMS
+              <span className="hidden sm:inline text-[10px] bg-[#C5B39C]/20 text-[#C5B39C] px-2 py-0.5 rounded font-mono font-normal">
+                CMS
               </span>
             </h1>
-            <p className="text-[11px] text-[#A39282]">
+            <p className="text-[10px] sm:text-[11px] text-[#A39282] hidden sm:block">
               Live updates persist in real time across all 8 website sections.
             </p>
           </div>
         </div>
 
-        <div className="flex items-center space-x-3">
+        <div className="flex items-center space-x-2 sm:space-x-3">
           <button
             type="button"
             onClick={resetAllData}
-            className="px-3 py-1.5 bg-[#2C2A29] hover:bg-red-950/80 text-red-300 hover:text-red-100 text-xs rounded flex items-center gap-1.5 transition-colors cursor-pointer border border-white/10"
+            className="px-2.5 sm:px-3 py-1.5 bg-[#2C2A29] hover:bg-red-950/80 text-red-300 hover:text-red-100 text-xs rounded flex items-center gap-1.5 transition-colors cursor-pointer border border-white/10"
             title="Reset to factory default content"
           >
             <RotateCcw size={13} />
-            <span className="hidden sm:inline">Reset Defaults</span>
+            <span className="hidden sm:inline">Reset</span>
           </button>
 
           <button
             type="button"
             onClick={handleClose}
-            className="px-4 py-1.5 bg-[#C5B39C] hover:bg-white text-[#1A1918] text-xs uppercase tracking-wider font-semibold rounded flex items-center gap-1.5 transition-colors cursor-pointer shadow-md"
+            className="px-3 sm:px-4 py-1.5 bg-[#C5B39C] hover:bg-white text-[#1A1918] text-xs uppercase tracking-wider font-semibold rounded flex items-center gap-1.5 transition-colors cursor-pointer shadow-md"
           >
             <Eye size={14} />
-            <span>View Live Site</span>
+            <span className="hidden xs:inline">Live Site</span>
           </button>
 
           <button
             type="button"
             onClick={handleClose}
-            className="p-1.5 text-white/70 hover:text-white hover:bg-white/10 rounded transition-colors cursor-pointer ml-1"
+            className="p-1.5 text-white/70 hover:text-white hover:bg-white/10 rounded transition-colors cursor-pointer ml-0.5 sm:ml-1"
             title="Close Admin CMS"
           >
-            <X size={20} />
+            <X size={18} />
           </button>
         </div>
       </header>
 
       {/* Main CMS Layout with Sidebar + Editor Panel */}
-      <div className="flex-1 flex overflow-hidden bg-[#FAF8F5]">
+      <div className="flex-1 flex overflow-hidden bg-[#FAF8F5] relative">
+        {/* Mobile Backdrop for Sidebar */}
+        {mobileSidebarOpen && (
+          <div
+            className="md:hidden fixed inset-0 z-40 bg-black/60 backdrop-blur-xs"
+            onClick={() => setMobileSidebarOpen(false)}
+          />
+        )}
+
         {/* Left Sidebar Navigation */}
-        <aside className="w-64 sm:w-72 bg-[#232120] text-[#FAF8F5] border-r border-white/10 flex flex-col shrink-0 overflow-y-auto">
-          <div className="p-4 border-b border-white/10">
-            <span className="text-[10px] uppercase tracking-[0.25em] text-[#A39282] font-mono block mb-1">
-              SECTION NAVIGATION
-            </span>
-            <p className="text-xs text-white/70">
-              Select a section to modify content, images &amp; styles.
-            </p>
+        <aside
+          className={`w-64 sm:w-72 bg-[#232120] text-[#FAF8F5] border-r border-white/10 flex flex-col shrink-0 overflow-y-auto transition-transform duration-300 z-50 md:static md:translate-x-0 ${
+            mobileSidebarOpen
+              ? 'fixed inset-y-0 left-0 top-[56px] shadow-2xl translate-x-0'
+              : 'hidden md:flex'
+          }`}
+        >
+          <div className="p-4 border-b border-white/10 flex items-center justify-between">
+            <div>
+              <span className="text-[10px] uppercase tracking-[0.25em] text-[#A39282] font-mono block mb-1">
+                SECTIONS
+              </span>
+              <p className="text-xs text-white/70">
+                Select a section to edit.
+              </p>
+            </div>
+            <button
+              onClick={() => setMobileSidebarOpen(false)}
+              className="md:hidden p-1 text-white/60 hover:text-white"
+            >
+              <X size={16} />
+            </button>
           </div>
 
           <nav className="p-3 space-y-1.5 flex-1">
@@ -241,7 +272,10 @@ export const AdminCmsModal: React.FC = () => {
                 <button
                   key={sec.id}
                   type="button"
-                  onClick={() => setActiveCmsTab(sec.id)}
+                  onClick={() => {
+                    setActiveCmsTab(sec.id);
+                    setMobileSidebarOpen(false);
+                  }}
                   className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded text-xs transition-all cursor-pointer font-medium text-left ${
                     isActive
                       ? 'bg-[#C5B39C] text-[#1A1918] font-semibold shadow-xs'
@@ -266,16 +300,13 @@ export const AdminCmsModal: React.FC = () => {
           <div className="p-4 border-t border-white/10 bg-[#1A1918] text-[11px] text-[#A39282] space-y-1">
             <div className="flex items-center gap-1.5 text-emerald-400 font-medium">
               <CheckCircle size={13} />
-              <span>CMS Auto-Saved to Browser</span>
+              <span>CMS Auto-Saved</span>
             </div>
-            <p className="text-[10px] text-white/50">
-              All edits update live in real-time.
-            </p>
           </div>
         </aside>
 
         {/* Right Editor Main View */}
-        <main className="flex-1 overflow-y-auto p-6 sm:p-8 md:p-10 max-w-5xl">
+        <main className="flex-1 overflow-y-auto p-4 sm:p-6 md:p-10 max-w-5xl w-full">
           {activeCmsTab === 'branding' && <SectionEditorBranding initialTab="logos" />}
           {activeCmsTab === 'watermark' && <SectionEditorBranding key="watermark" initialTab="watermark" />}
           {activeCmsTab === 'hero' && <SectionEditorHero />}

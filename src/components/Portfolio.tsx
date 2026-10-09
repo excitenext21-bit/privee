@@ -82,14 +82,14 @@ export const Portfolio: React.FC = () => {
   };
 
   return (
-    <section id="portfolio" className="pt-18 sm:pt-[100px] pb-16 sm:pb-[90px] bg-white w-full overflow-hidden">
+    <section id="portfolio" className="pt-12 sm:pt-20 md:pt-[100px] pb-12 sm:pb-16 md:pb-[90px] bg-white w-full overflow-hidden">
       {/* Section Header */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12 text-center mb-10 sm:mb-14">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 text-center mb-8 sm:mb-12 md:mb-14">
         <span
           style={{
             color: 'rgba(205,202,195,1)',
-            letterSpacing: '0.05em',
-            fontSize: '10px',
+            letterSpacing: '0.1em',
+            fontSize: '11px',
             textAlign: 'center',
             textTransform: 'uppercase',
             lineHeight: 1.8,
@@ -102,22 +102,23 @@ export const Portfolio: React.FC = () => {
         >
           {portfolio.subtitle}
         </span>
-        <div className="w-16 h-[1px] bg-[#E2DCD4] mx-auto mb-4"></div>
+        <div className="w-14 h-[1px] bg-[#E2DCD4] mx-auto mb-3 sm:mb-4"></div>
         <h2
           style={{
-            textTransform: 'uppercase',
-            color: 'rgba(153,152,148,1)',
-            lineHeight: 1.2,
-            letterSpacing: '0.1em',
-            fontSize: '45px',
-            textAlign: 'center',
+            ...getStyleObject(portfolio.titleStyle),
+            lineHeight: 1.25,
+            textDecoration: 'none',
             fontFamily: "'Cormorant Garamond', serif",
+            fontSize: '32px',
             fontWeight: 400,
+            color: 'rgb(153, 152, 148)',
             fontStyle: 'normal',
-            ...getStyleObject(portfolio.titleStyle)
+            textTransform: 'none',
+            letterSpacing: '0.02em',
+            textAlign: 'center'
           }}
         >
-          {portfolio.title}
+          {portfolio.title && portfolio.title.trim().toUpperCase() === 'PORTFOLIO' ? 'Portfolio' : (portfolio.title || 'Portfolio')}
         </h2>
       </div>
 
@@ -131,7 +132,7 @@ export const Portfolio: React.FC = () => {
         onMouseDown={handleMouseDown}
         onMouseUp={handleMouseUp}
         onMouseMove={handleMouseMove}
-        className={`w-full flex gap-3 sm:gap-4 md:gap-5 overflow-x-auto select-none py-2 px-0 no-scrollbar [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden ${
+        className={`w-full flex gap-3 sm:gap-4 md:gap-5 overflow-x-auto select-none py-2 px-4 sm:px-6 md:px-0 no-scrollbar [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden ${
           isDragging ? 'cursor-grabbing' : 'cursor-grab'
         }`}
       >
@@ -141,9 +142,9 @@ export const Portfolio: React.FC = () => {
           return (
             <div
               key={`${item.id}-${index}`}
-              className="group flex flex-col justify-between shrink-0 w-[82vw] sm:w-[42vw] md:w-[35vw] lg:w-[32vw]"
+              className="group flex flex-col justify-between shrink-0 w-[74vw] sm:w-[44vw] md:w-[34vw] lg:w-[30vw] max-w-[420px]"
             >
-              <div className="relative overflow-hidden aspect-3/4 bg-[#EFECE6]">
+              <div className="relative overflow-hidden aspect-3/4 bg-[#EFECE6] shadow-2xs">
                 <picture>
                   <source
                     srcSet={item.image.replace(/\.(jpg|jpeg|png)$/i, '.webp')}

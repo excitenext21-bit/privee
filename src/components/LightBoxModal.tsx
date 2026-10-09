@@ -26,33 +26,33 @@ export const LightBoxModal: React.FC<LightBoxModalProps> = ({ item, onClose }) =
   if (!item) return null;
 
   return (
-    <div className="fixed inset-0 z-50 bg-[#999894]/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-8 animate-fadeIn">
+    <div className="fixed inset-0 z-50 bg-[#999894]/90 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 md:p-8 animate-fadeIn">
       {/* Modal Container */}
-      <div className="relative bg-[#FAF8F5] max-w-5xl w-full max-h-[90vh] overflow-y-auto border border-[#E8E2D9] shadow-2xl grid grid-cols-1 md:grid-cols-12">
+      <div className="relative bg-[#FAF8F5] max-w-5xl w-full max-h-[92vh] overflow-y-auto border border-[#E8E2D9] shadow-2xl grid grid-cols-1 md:grid-cols-12 rounded-xs">
         
         {/* Close Button */}
         <button
           onClick={onClose}
           aria-label="Close modal"
-          className="absolute top-4 right-4 z-10 p-3 bg-[#999894] text-[#FAF8F5] hover:bg-[#B59E83] transition-colors rounded-full cursor-pointer shadow-md"
+          className="absolute top-3 right-3 z-20 p-2 sm:p-2.5 bg-[#999894] text-[#FAF8F5] hover:bg-[#B59E83] transition-colors rounded-full cursor-pointer shadow-md"
         >
-          <X size={20} />
+          <X size={18} />
         </button>
 
         {/* Left Column: Image */}
-        <div className="relative md:col-span-7 bg-[#999894] flex items-center justify-center p-2 overflow-hidden min-h-[300px]">
+        <div className="relative md:col-span-7 bg-[#999894] flex items-center justify-center p-2 overflow-hidden min-h-[240px] sm:min-h-[320px]">
           <img
             src={item.image}
             alt={item.title}
-            className="w-full h-full max-h-[70vh] object-contain"
+            className="w-full h-full max-h-[50vh] md:max-h-[70vh] object-contain"
           />
           <WatermarkOverlay />
         </div>
 
         {/* Right Column: Editorial Details */}
-        <div className="md:col-span-5 p-8 sm:p-10 flex flex-col justify-between">
+        <div className="md:col-span-5 p-5 sm:p-8 md:p-10 flex flex-col justify-between">
           <div>
-            <div className="flex items-center space-x-2 text-[10px] uppercase tracking-[0.25em] text-[#A39282] mb-3 font-mono">
+            <div className="flex items-center space-x-2 text-[10px] uppercase tracking-[0.22em] sm:tracking-[0.25em] text-[#A39282] mb-2 sm:mb-3 font-mono">
               <Sparkles size={12} className="text-[#B59E83]" />
               <span>{item.category} COLLECTION</span>
             </div>
