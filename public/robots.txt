@@ -1,0 +1,40 @@
+# ========================================================
+# Design Privée by Vikrantt - Robots.txt
+# Optimized for Googlebot, Bingbot, and Major Search Engines
+# ========================================================
+
+User-agent: *
+Allow: /
+Allow: /assets/
+Allow: /portfolio/
+Disallow: /api/
+Disallow: /data/
+Disallow: /uploads/private/
+Disallow: /#admin
+Disallow: /#cms
+Disallow: /#login
+
+# Specific rules for Googlebot
+User-agent: Googlebot
+Allow: /
+Allow: /assets/
+Allow: /portfolio/
+Disallow: /api/
+Disallow: /data/
+
+# Allow Google Image Bot to crawl and index all luxury wedding decor & portfolio photography
+User-agent: Googlebot-Image
+Allow: /assets/
+Allow: /portfolio/
+Allow: /uploads/
+
+# Specific rules for Bingbot
+User-agent: Bingbot
+Allow: /
+Allow: /assets/
+Disallow: /api/
+Disallow: /data/
+
+# Sitemap location for Google Search Console and Bing Webmaster Tools
+Sitemap: https://www.designprivee.com/sitemap.xml
+Sitemap: https://linen-falcon-665852.hostingersite.com/sitemap.xml

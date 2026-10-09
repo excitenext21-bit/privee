@@ -521,6 +521,46 @@ app.post('/api/enquiry', async (req, res) => {
   }
 });
 
+// Explicit SEO & Google Search Console routes
+app.get('/robots.txt', (req, res) => {
+  const robotsPath = [
+    path.join(__dirname, 'dist', 'robots.txt'),
+    path.join(__dirname, 'public', 'robots.txt')
+  ].find(p => fs.existsSync(p));
+  if (robotsPath) {
+    res.setHeader('Content-Type', 'text/plain; charset=utf-8');
+    res.setHeader('Cache-Control', 'public, max-age=86400');
+    return res.sendFile(robotsPath);
+  }
+  res.type('text/plain').send("User-agent: *\nAllow: /\nSitemap: https://www.designprivee.com/sitemap.xml\n");
+});
+
+app.get('/sitemap.xml', (req, res) => {
+  const sitemapPath = [
+    path.join(__dirname, 'dist', 'sitemap.xml'),
+    path.join(__dirname, 'public', 'sitemap.xml')
+  ].find(p => fs.existsSync(p));
+  if (sitemapPath) {
+    res.setHeader('Content-Type', 'application/xml; charset=utf-8');
+    res.setHeader('Cache-Control', 'public, max-age=86400');
+    return res.sendFile(sitemapPath);
+  }
+  res.status(404).end();
+});
+
+// Dynamic Google Search Console verification support (serves any google*.html file automatically)
+app.get('/google:code([a-zA-Z0-9_-]+).html', (req, res) => {
+  const filename = `google${req.params.code}.html`;
+  const customFile = [
+    path.join(__dirname, 'dist', filename),
+    path.join(__dirname, 'public', filename)
+  ].find(p => fs.existsSync(p));
+  if (customFile) {
+    return res.sendFile(customFile);
+  }
+  res.type('text/html').send(`google-site-verification: google${req.params.code}.html`);
+});
+
 // Production: Serve static assets from 'dist' directory
 const distDir = path.join(__dirname, 'dist');
 if (fs.existsSync(distDir)) {

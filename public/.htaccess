@@ -40,6 +40,11 @@
     Header set Cache-Control "max-age=31536000, public"
   </FilesMatch>
 
+  # Sitemap & Robots.txt specific cache rules (daily revalidation for search engines)
+  <FilesMatch "(sitemap\.xml|robots\.txt)$">
+    Header set Cache-Control "max-age=86400, public, must-revalidate"
+  </FilesMatch>
+
   # Prevent caching for API calls so live updates show up instantly
   <FilesMatch "api\.php$">
     Header set Cache-Control "no-cache, no-store, must-revalidate"
