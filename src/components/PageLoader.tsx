@@ -83,22 +83,8 @@ export const PageLoader: React.FC<PageLoaderProps> = ({ onComplete }) => {
           <Logo className="w-[140px] sm:w-[170px] relative z-10 transition-opacity duration-500" />
         </div>
 
-        {/* Tagline / Subtitle */}
-        <div className="mt-4 overflow-hidden">
-          <p 
-            className="text-[10px] sm:text-[11px] uppercase text-[#7A756C] tracking-[0.32em] font-light transition-all duration-700"
-            style={{
-              fontFamily: "'Karla', sans-serif",
-              opacity: progress > 15 ? 1 : 0,
-              transform: progress > 15 ? 'translateY(0)' : 'translateY(8px)'
-            }}
-          >
-            HAUTE ÉVÉNEMENT ARCHITECTURE
-          </p>
-        </div>
-
         {/* Creative Luxury Progress Bar */}
-        <div className="mt-8 w-44 sm:w-52 flex flex-col items-center">
+        <div className="mt-6 w-44 sm:w-52 flex flex-col items-center">
           <div className="w-full h-[1.5px] bg-[#E8E2D9] relative overflow-hidden rounded-full">
             <div
               className="absolute top-0 left-0 bottom-0 bg-gradient-to-r from-[#D4C3B3] via-[#999894] to-[#C5B39C] transition-all duration-150 ease-out"
