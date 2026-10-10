@@ -36,139 +36,134 @@ export const VIKRANTT_CONTENT = {
 
 export const PORTFOLIO_ITEMS: PortfolioItem[] = [
   {
-    id: "port-01",
-    title: "MANDAP OPULENCE",
-    category: "Destination Wedding",
-    image: "/portfolio/portfolio_01.jpg",
-    location: "GOA",
-    description: "Architectural mandap structure with bespoke floral ombre canopy and panoramic coastal views.",
-    year: "2026"
+    "id": "port-01",
+    "title": "COASTAL MANDAP OPULENCE",
+    "category": "Destination Wedding",
+    "image": "/portfolio/portfolio_mandap_celebration.png",
+    "location": "GOA",
+    "description": "Bespoke floral mandap framed by swaying palms and a celebratory rainbow smoke display.",
+    "year": "2026",
+    "grayscale": false
   },
   {
-    id: "port-02",
-    title: "ROYAL AISLE COUTURE",
-    category: "Palace Celebration",
-    image: "/portfolio/portfolio_02.jpg",
-    location: "UDAIPUR",
-    description: "Sculpted floral runner and classical colonnade framing an intimate ceremony soirée.",
-    year: "2026"
+    "id": "port-04",
+    "title": "COUTURE FLORAL ARCH",
+    "category": "Signature Ceremony",
+    "image": "/portfolio/portfolio_04.jpg",
+    "location": "MUMBAI",
+    "description": "Cascading ombré gypsophila and delicate roses framing the sacred wedding vows.",
+    "year": "2026",
+    "grayscale": false
   },
   {
-    id: "port-03",
-    title: "ETHEREAL CANOPY",
-    category: "Luxury Decor",
-    image: "/portfolio/portfolio_03.jpg",
-    location: "JAIPUR",
-    description: "Suspended botanical cloud in soft pastel tones, illuminated by ambient candlelit radiance.",
-    year: "2026"
+    "id": "port-05",
+    "title": "SANCTUARY OF ART",
+    "category": "Bespoke Styling",
+    "image": "/portfolio/portfolio_05.jpg",
+    "location": "DELHI",
+    "description": "Immaculately curated floral installations bringing architectural grandeur to life.",
+    "year": "2026",
+    "grayscale": false
   },
   {
-    id: "port-04",
-    title: "COUTURE FLORAL ARCH",
-    category: "Signature Ceremony",
-    image: "/portfolio/portfolio_04.jpg",
-    location: "MUMBAI",
-    description: "Cascading ombré gypsophila and delicate roses framing the sacred wedding vows.",
-    year: "2026"
+    "id": "port-06",
+    "title": "TIMELESS GRANDEUR",
+    "category": "Grand Celebration",
+    "image": "/portfolio/portfolio_06.jpg",
+    "location": "GOA",
+    "description": "A harmonious blend of contemporary spatial flow and traditional ceremonial elegance.",
+    "year": "2026",
+    "grayscale": false
   },
   {
-    id: "port-05",
-    title: "SANCTUARY OF ART",
-    category: "Bespoke Styling",
-    image: "/portfolio/portfolio_05.jpg",
-    location: "DELHI",
-    description: "Immaculately curated floral installations bringing architectural grandeur to life.",
-    year: "2026"
+    "id": "port-07",
+    "title": "CELESTIAL BLOOMS",
+    "category": "Fine Art Wedding",
+    "image": "/portfolio/portfolio_07.jpg",
+    "location": "UDAIPUR",
+    "description": "Volumetric floral arrangements and bespoke candelabras creating an enchanting atmosphere.",
+    "year": "2026",
+    "grayscale": false
   },
   {
-    id: "port-06",
-    title: "TIMELESS GRANDEUR",
-    category: "Grand Celebration",
-    image: "/portfolio/portfolio_06.jpg",
-    location: "GOA",
-    description: "A harmonious blend of contemporary spatial flow and traditional ceremonial elegance.",
-    year: "2026"
+    "id": "port-08",
+    "title": "BOTANICAL PAVILION",
+    "category": "Outdoor Soirée",
+    "image": "/portfolio/portfolio_08.jpg",
+    "location": "JAIPUR",
+    "description": "A seamless union of organic greenery, cascading orchids, and contemporary minimalist pillars.",
+    "year": "2026",
+    "grayscale": false
   },
   {
-    id: "port-07",
-    title: "CELESTIAL BLOOMS",
-    category: "Fine Art Wedding",
-    image: "/portfolio/portfolio_07.jpg",
-    location: "UDAIPUR",
-    description: "Volumetric floral arrangements and bespoke candelabras creating an enchanting atmosphere.",
-    year: "2026"
+    "id": "port-09",
+    "title": "THE CRYSTAL BALLROOM",
+    "category": "Evening Gala",
+    "image": "/portfolio/portfolio_09.jpg",
+    "location": "MUMBAI",
+    "description": "Opulent chandeliers suspended amid draped velvet, mirroring candlelit crystal tablescapes.",
+    "year": "2026",
+    "grayscale": false
   },
   {
-    id: "port-08",
-    title: "PALATIAL EVENING",
-    category: "Luxury Reception",
-    image: "/portfolio/portfolio_08.jpg",
-    location: "JAIPUR",
-    description: "Dramatic ambient lighting and tailored textures curated for an unforgettable celebration.",
-    year: "2026"
+    "id": "port-10",
+    "title": "SERENADE IN IVORY",
+    "category": "Intimate Celebration",
+    "image": "/portfolio/portfolio_10.jpg",
+    "location": "GOA",
+    "description": "Delicate ivory florals entwined around rustic timber arches for an unforgettable sunset vow exchange.",
+    "year": "2026",
+    "grayscale": false
   },
   {
-    id: "port-09",
-    title: "HARMONIOUS SYMPHONY",
-    category: "Destination Wedding",
-    image: "/portfolio/portfolio_09.jpg",
-    location: "KERALA",
-    description: "Soft textural palettes and natural floral scents creating sensory wonder for every guest.",
-    year: "2026"
+    "id": "port-11",
+    "title": "REGAL SYMPHONY",
+    "category": "Palace Wedding",
+    "image": "/portfolio/portfolio_11.jpg",
+    "location": "JODHPUR",
+    "description": "Traditional royal court aesthetics reimagined through modern lighting and refined floral sculptures.",
+    "year": "2026",
+    "grayscale": false
   },
   {
-    id: "port-10",
-    title: "POETIC DETAILS",
-    category: "Artisanal Decor",
-    image: "/portfolio/portfolio_10.jpg",
-    location: "MUMBAI",
-    description: "Meticulously styled stationery, custom linen swatches, and artisan craftsmanship.",
-    year: "2026"
+    "id": "port-12",
+    "title": "MEHNDI MOSAIC",
+    "category": "Vibrant Pre-Wedding",
+    "image": "/portfolio/portfolio_12.jpg",
+    "location": "DELHI",
+    "description": "A kaleidoscope of marigolds, handcrafted artisanal tapestries, and playful color-blocked lounges.",
+    "year": "2026",
+    "grayscale": false
   },
   {
-    id: "port-11",
-    title: "BOTANICAL DREAMSCAPE",
-    category: "Couture Design",
-    image: "/portfolio/portfolio_11.jpg",
-    location: "DELHI",
-    description: "Textured floral tapestry and custom designed spatial elements tailored for modern tastemakers.",
-    year: "2026"
+    "id": "port-13",
+    "title": "NOCTURNE ILLUMINATION",
+    "category": "Cocktail Night",
+    "image": "/portfolio/portfolio_13.jpg",
+    "location": "MUMBAI",
+    "description": "Dramatic mood lighting accented by metallic geometric structures and exotic deep-crimson flora.",
+    "year": "2026",
+    "grayscale": false
   },
   {
-    id: "port-12",
-    title: "AESTHETIC SERENITY",
-    category: "Intimate Gathering",
-    image: "/portfolio/portfolio_12.jpg",
-    location: "GOA",
-    description: "Understated luxury where modern minimalism meets timeless celebration warmth.",
-    year: "2026"
+    "id": "port-14",
+    "title": "HERITAGE COURTYARD",
+    "category": "Cultural Wedding",
+    "image": "/portfolio/portfolio_14.jpg",
+    "location": "UDAIPUR",
+    "description": "Centuries-old stone architecture framed by cascading jasmine, brass urns, and lotus pools.",
+    "year": "2026",
+    "grayscale": false
   },
   {
-    id: "port-13",
-    title: "CONTEMPORARY CHIC",
-    category: "Modern Glamour",
-    image: "/portfolio/portfolio_13.jpg",
-    location: "BANGALORE",
-    description: "Crisp architectural lines, sculptural florals, and high-fashion celebration styling.",
-    year: "2026"
-  },
-  {
-    id: "port-14",
-    title: "VINTAGE SPLENDOR",
-    category: "Heritage Venue",
-    image: "/portfolio/portfolio_14.jpg",
-    location: "JAIPUR",
-    description: "Rich layered fabrics, antique brass accents, and evocative floral compositions.",
-    year: "2026"
-  },
-  {
-    id: "port-15",
-    title: "ENCHANTED FINALE",
-    category: "After Party Soirée",
-    image: "/portfolio/portfolio_15.jpg",
-    location: "UDAIPUR",
-    description: "A magical twilight ambiance celebrating romance, art, and unforgettable memories.",
-    year: "2026"
+    "id": "port-15",
+    "title": "WHISPERS OF DUSK",
+    "category": "Sunset Reception",
+    "image": "/portfolio/portfolio_15.jpg",
+    "location": "GOA",
+    "description": "Bespoke ambient lanterns and delicate fairy-light canopies creating a dreamscape under the stars.",
+    "year": "2026",
+    "grayscale": false
   }
 ];
 

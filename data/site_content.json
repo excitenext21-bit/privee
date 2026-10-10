@@ -196,31 +196,11 @@
     "items": [
       {
         "id": "port-01",
-        "title": "MANDAP OPULENCE",
+        "title": "COASTAL MANDAP OPULENCE",
         "category": "Destination Wedding",
-        "image": "/portfolio/portfolio_01.jpg",
+        "image": "/portfolio/portfolio_mandap_celebration.png",
         "location": "GOA",
-        "description": "Architectural mandap structure with bespoke floral ombre canopy and panoramic coastal views.",
-        "year": "2026",
-        "grayscale": false
-      },
-      {
-        "id": "port-02",
-        "title": "ROYAL AISLE COUTURE",
-        "category": "Palace Celebration",
-        "image": "/portfolio/portfolio_02.jpg",
-        "location": "UDAIPUR",
-        "description": "Sculpted floral runner and classical colonnade framing an intimate ceremony soirée.",
-        "year": "2026",
-        "grayscale": false
-      },
-      {
-        "id": "port-03",
-        "title": "ETHEREAL CANOPY",
-        "category": "Luxury Decor",
-        "image": "/portfolio/portfolio_03.jpg",
-        "location": "JAIPUR",
-        "description": "Suspended botanical cloud in soft pastel tones, illuminated by ambient candlelit radiance.",
+        "description": "Bespoke floral mandap framed by swaying palms and a celebratory rainbow smoke display.",
         "year": "2026",
         "grayscale": false
       },
