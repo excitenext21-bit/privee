@@ -559,24 +559,27 @@ function migrateSiteData(raw: any): SiteData {
 
   if (copy.testimonials) {
     if (copy.testimonials.items && Array.isArray(copy.testimonials.items)) {
-      const hasSunitha = copy.testimonials.items.some(
+      const sunithaIndex = copy.testimonials.items.findIndex(
         (t: any) =>
           t.id === 't7' ||
           t.clientName === 'Sunitha Choudhary' ||
           t.roleOrRelation === '@sunithasmehandiart'
       );
-      if (!hasSunitha) {
-        copy.testimonials.items = [
-          ...copy.testimonials.items,
-          {
-            id: 't7',
-            clientName: 'Sunitha Choudhary',
-            roleOrRelation: '@sunithasmehandiart',
-            quote: 'I have known Vikrant for over 10 years, and I can confidently say that he is truly exceptional at what he does.',
-            detailedQuote:
-              'I have known Vikrant for over 10 years, and I can confidently say that he is truly exceptional at what he does. I have had the opportunity to work with him on several projects, including wedding events, and his professionalism, creativity, and attention to detail have always stood out.\n\nVikrant is excellent when it comes to wedding décor, designing, and overall event execution. He has a great eye for aesthetics and knows how to bring a vision to life with creativity and perfection. From understanding the concept to handling the décor and designing aspects, he manages everything with great dedication and professionalism.\n\nHaving worked with him on multiple projects, I can genuinely say that he is outstanding at his work and someone you can completely rely on for beautiful and well-executed events.\n\nWishing Vikrant continued success and all the very best for his future. I’m sure he has many more great milestones ahead!'
-          }
-        ];
+      const sunithaItem = {
+        id: 't7',
+        clientName: 'Sunitha Choudhary',
+        roleOrRelation: '@sunithasmehandiart',
+        quote: 'Vikrant is excellent when it comes to wedding décor, designing, and overall event execution.',
+        detailedQuote:
+          'Vikrant is excellent when it comes to wedding décor, designing, and overall event execution. He has a great eye for aesthetics and knows how to bring a vision to life with creativity and perfection. From understanding the concept to handling the décor and designing aspects, he manages everything with great dedication and professionalism.'
+      };
+      if (sunithaIndex === -1) {
+        copy.testimonials.items = [...copy.testimonials.items, sunithaItem];
+      } else {
+        copy.testimonials.items[sunithaIndex] = {
+          ...copy.testimonials.items[sunithaIndex],
+          ...sunithaItem
+        };
       }
     } else {
       copy.testimonials.items = TESTIMONIALS;
