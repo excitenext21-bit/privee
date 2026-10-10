@@ -86,16 +86,6 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     "grayscale": false
   },
   {
-    "id": "port-08",
-    "title": "BOTANICAL PAVILION",
-    "category": "Outdoor Soirée",
-    "image": "/portfolio/portfolio_08.jpg",
-    "location": "JAIPUR",
-    "description": "A seamless union of organic greenery, cascading orchids, and contemporary minimalist pillars.",
-    "year": "2026",
-    "grayscale": false
-  },
-  {
     "id": "port-09",
     "title": "THE CRYSTAL BALLROOM",
     "category": "Evening Gala",

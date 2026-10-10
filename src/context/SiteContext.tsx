@@ -593,6 +593,11 @@ function migrateSiteData(raw: any): SiteData {
     );
     if (!copy.portfolio.items || copy.portfolio.items.length === 0 || hasOldItems) {
       copy.portfolio.items = PORTFOLIO_ITEMS.map((item) => ({ ...item, grayscale: false }));
+    } else {
+      // Remove second occurrence of the fireworks mandap image (port-08) from cached items
+      copy.portfolio.items = copy.portfolio.items.filter(
+        (i: any) => i.id !== 'port-08' && !(i.image && i.image.includes('portfolio_08'))
+      );
     }
     if (copy.portfolio.titleStyle && isDarkColor(copy.portfolio.titleStyle.fontColor)) {
       copy.portfolio = { ...copy.portfolio, titleStyle: sanitizeStyle(copy.portfolio.titleStyle) };
