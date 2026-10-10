@@ -55,7 +55,7 @@ export const Hero: React.FC = () => {
         ) : (
           <img
             src={hero.imageUrl || 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=2000'}
-            alt="Design Privée Luxury Wedding Setting"
+            alt="Design Privéé Luxury Wedding Setting"
             className="w-full h-full object-cover object-center opacity-100"
           />
         )}

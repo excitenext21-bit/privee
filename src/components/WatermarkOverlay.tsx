@@ -18,7 +18,7 @@ export const WatermarkOverlay: React.FC<WatermarkOverlayProps> = ({
   const watermark = data.branding?.watermark || {
     enabled: true,
     type: 'text',
-    text: 'DESIGN PRIVÉE',
+    text: 'DESIGN PRIVÉÉ',
     customImageUrl: '',
     opacity: 0.22,
     position: 'bottom-right',
@@ -124,7 +124,7 @@ export const WatermarkOverlay: React.FC<WatermarkOverlayProps> = ({
                 style={{ ...fontStyle, ...getColorStyle(), opacity: 1 }}
                 className={`uppercase font-medium ${getTextSizeClass()}`}
               >
-                {watermark.text || 'DESIGN PRIVÉE'}
+                {watermark.text || 'DESIGN PRIVÉÉ'}
               </span>
             )}
           </div>
@@ -159,7 +159,7 @@ export const WatermarkOverlay: React.FC<WatermarkOverlayProps> = ({
               : ''
           }`}
         >
-          {watermark.text || 'DESIGN PRIVÉE'}
+          {watermark.text || 'DESIGN PRIVÉÉ'}
         </div>
       )}
     </div>

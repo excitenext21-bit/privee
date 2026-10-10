@@ -126,7 +126,7 @@ export const Testimonials: React.FC = () => {
               <div className="relative w-full max-w-[460px] aspect-[4/5] overflow-hidden shadow-sm bg-[#EFECE6] z-10">
                 <img
                   src={displayImage}
-                  alt="PRIVÉE Wedding - Couple of the Month"
+                  alt="PRIVÉÉ Wedding - Couple of the Month"
                   className="w-full h-full object-cover transition-all duration-700"
                 />
                 <WatermarkOverlay />

@@ -493,7 +493,7 @@ CREATE TABLE IF NOT EXISTS contact_submissions (
                 <div className="p-2.5 bg-white rounded border border-[#DDD8D0]">
                   <span className="font-semibold block text-[#1A1918] mb-1">3. Triple-Click Footer Logo</span>
                   <p className="text-[11px] text-[#7A756C]">
-                    Triple-click the center "DESIGN PRIVÉE" logo in the footer or hold <kbd className="bg-[#FAF8F5] border px-1 rounded font-mono text-[#1A1918]">Alt</kbd> while clicking.
+                    Triple-click the center "DESIGN PRIVÉÉ" logo in the footer or hold <kbd className="bg-[#FAF8F5] border px-1 rounded font-mono text-[#1A1918]">Alt</kbd> while clicking.
                   </p>
                 </div>
               </div>

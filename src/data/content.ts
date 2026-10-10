@@ -1,9 +1,9 @@
 import { PortfolioItem, Testimonial, ProcessStep } from '../types';
 
 export const BRAND_INFO = {
-  name: "DESIGN PRIVÉE",
+  name: "DESIGN PRIVÉÉ",
   subBrand: "BY VIKRANTT",
-  fullName: "DESIGN PRIVÉE BY VIKRANTT",
+  fullName: "DESIGN PRIVÉÉ BY VIKRANTT",
   tagline: "A PREMIER WEDDING DESIGN & DECOR COMPANY",
   heroCategory: "A PREMIER WEDDING DESIGN & DECOR COMPANY",
   heroTitle: "Designing Artful & Impeccably Curated Weddings Reminiscent of Your Dream Event",
@@ -184,7 +184,7 @@ export const TESTIMONIALS: Testimonial[] = [
     id: "t4",
     clientName: "Jayanti Mam",
     roleOrRelation: "DESTINATION WEDDING HOST",
-    quote: "The decor and floral arrangements were breathtaking. Design Privée turned our celebration into a timeless piece of art that we will cherish forever.",
+    quote: "The decor and floral arrangements were breathtaking. Design Privéé turned our celebration into a timeless piece of art that we will cherish forever.",
     detailedQuote: "Every detail was curated with such intentionality. The candlelit tablescapes, custom linen textures, and floral installations transformed our venue into a sanctuary of beauty. Our family and friends are still talking about how magical the evening felt."
   },
   {
@@ -213,22 +213,22 @@ export const TESTIMONIALS: Testimonial[] = [
 export const PROCESS_STEPS: ProcessStep[] = [
   {
     number: "01",
-    title: "CONSULTATION & VISION",
+    title: "Consultation & Vision",
     description: "We begin with a thoughtful, unhurried dialogue to discover your personal story, aesthetic preferences, and aspirations for the celebration."
   },
   {
     number: "02",
-    title: "CONCEPT & CURATION",
+    title: "Concept & Curation",
     description: "Translating feeling into visual form, we develop tailored color palettes, mood textures, lighting plans, and architectural spatial flow in 3D concept."
   },
   {
     number: "03",
-    title: "DESIGN & EXECUTION",
+    title: "Design & Execution",
     description: "As every event and couple is unique, we create a custom vision board and color palette for your wedding day. Upon approval we will further hand select the remaining team of vendors needed to carry out your vision. Ultimately, we assist with determining every physical and visual aspect of your event, while ensuring it reflects your values, family dynamics, style, dreams, and desires."
   },
   {
     number: "04",
-    title: "SEAMLESS PRODUCTION",
+    title: "Seamless Production",
     description: "On-site creative directing, flatlay styling, vendor orchestration, and immaculate day-of styling ensure you experience every moment with absolute serenity."
   }
 ];

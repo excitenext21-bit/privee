@@ -79,7 +79,7 @@ export const LightBoxModal: React.FC<LightBoxModalProps> = ({ item, onClose }) =
 
           <div className="pt-8 border-t border-[#E8E2D9] mt-8 flex items-center justify-between">
             <span className="text-[10px] uppercase tracking-[0.2em] text-[#9A8F85]">
-              DESIGN PRIVÉE BY VIKRANTT
+              DESIGN PRIVÉÉ BY VIKRANTT
             </span>
             <a
               href="#contact"

@@ -66,9 +66,10 @@ export const Process: React.FC = () => {
                   <h3
                     style={{
                       ...getStyleObject(process.stepTitleStyle),
+                      textTransform: 'none',
                       color: isActive ? '#FAF8F5' : '#999894'
                     }}
-                    className="text-base sm:text-lg font-serif tracking-[0.08em] sm:tracking-[0.1em] uppercase transition-colors"
+                    className="text-base sm:text-lg font-serif tracking-[0.04em] sm:tracking-[0.06em] normal-case transition-colors"
                   >
                     {step.title}
                   </h3>
@@ -83,7 +84,7 @@ export const Process: React.FC = () => {
               <div key={currentStep.number} className="animate-fadeIn space-y-5 sm:space-y-6">
                 <div className="flex items-center space-x-2.5 sm:space-x-3 text-[10px] sm:text-xs tracking-[0.25em] sm:tracking-[0.3em] uppercase text-[#A39282] pb-3 sm:pb-4 border-b border-[#E8E2D9]/60">
                   <CheckCircle2 size={15} className="text-[#C5B39C] shrink-0" />
-                  <span>DESIGN PRIVÉE METHODOLOGY</span>
+                  <span>DESIGN PRIVÉÉ METHODOLOGY</span>
                 </div>
 
                 <h3
@@ -91,7 +92,7 @@ export const Process: React.FC = () => {
                     fontSize: 'clamp(20px, 4.5vw, 28px)',
                     fontFamily: "'Cormorant Garamond', serif",
                     fontWeight: 400,
-                    textTransform: 'uppercase',
+                    textTransform: 'none',
                     letterSpacing: '0.08em',
                     lineHeight: 1.2,
                     ...getStyleObject(process.stepTitleStyle),

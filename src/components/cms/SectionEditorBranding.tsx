@@ -31,7 +31,7 @@ interface SectionEditorBrandingProps {
 export const SectionEditorBranding: React.FC<SectionEditorBrandingProps> = ({ initialTab = 'logos' }) => {
   const { data, updateBranding } = useSiteData();
   const branding = data.branding || {
-    siteTitle: 'Design Privée by Vikrantt | Premier Wedding Design & Decor Company',
+    siteTitle: 'Design Privéé by Vikrantt | Premier Wedding Design & Decor Company',
     faviconUrl: '',
     headerLogoUrl: '',
     headerLogoWidth: 190,
@@ -42,7 +42,7 @@ export const SectionEditorBranding: React.FC<SectionEditorBrandingProps> = ({ in
     watermark: {
       enabled: true,
       type: 'text',
-      text: 'DESIGN PRIVÉE',
+      text: 'DESIGN PRIVÉÉ',
       customImageUrl: '',
       opacity: 0.22,
       position: 'bottom-right',
@@ -72,7 +72,7 @@ export const SectionEditorBranding: React.FC<SectionEditorBrandingProps> = ({ in
   const watermark: WatermarkConfig = branding.watermark || {
     enabled: true,
     type: 'text',
-    text: 'DESIGN PRIVÉE',
+    text: 'DESIGN PRIVÉÉ',
     customImageUrl: '',
     opacity: 0.22,
     position: 'bottom-right',
@@ -312,7 +312,7 @@ export const SectionEditorBranding: React.FC<SectionEditorBrandingProps> = ({ in
                           {watermark.type === 'text' && <Check size={12} className="text-[#C5B39C]" />}
                         </div>
                         <p className="text-[11px] text-[#666] mt-0.5">
-                          Clean, elegant luxury serif or sans text watermark ("DESIGN PRIVÉE").
+                          Clean, elegant luxury serif or sans text watermark ("DESIGN PRIVÉÉ").
                         </p>
                       </div>
                     </button>
@@ -353,7 +353,7 @@ export const SectionEditorBranding: React.FC<SectionEditorBrandingProps> = ({ in
                         type="text"
                         value={watermark.text || ''}
                         onChange={(e) => updateWatermarkSettings({ text: e.target.value })}
-                        placeholder="DESIGN PRIVÉE"
+                        placeholder="DESIGN PRIVÉÉ"
                         className="w-full px-3 py-2 text-sm border border-[#CCC] rounded bg-white focus:outline-none focus:border-[#1A1918] tracking-widest font-serif"
                       />
                     </div>
@@ -551,7 +551,7 @@ export const SectionEditorBranding: React.FC<SectionEditorBrandingProps> = ({ in
                   type="text"
                   value={branding.siteTitle || ''}
                   onChange={(e) => updateBranding({ siteTitle: e.target.value })}
-                  placeholder="Design Privée by Vikrantt | Premier Wedding Design & Decor Company"
+                  placeholder="Design Privéé by Vikrantt | Premier Wedding Design & Decor Company"
                   className="w-full bg-[#FAF8F5] border border-[#DDD8D0] px-3 py-2 text-xs rounded text-[#1A1918] focus:border-[#C5B39C] focus:outline-none"
                 />
               </div>

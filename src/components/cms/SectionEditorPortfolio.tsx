@@ -74,7 +74,7 @@ export const SectionEditorPortfolio: React.FC = () => {
               category: 'Featured Work',
               image: base64,
               location: 'MONTECITO',
-              description: 'Exquisite editorial celebration curated by Design Privée.',
+              description: 'Exquisite editorial celebration curated by Design Privéé.',
               year: '2026',
               grayscale: false
             });

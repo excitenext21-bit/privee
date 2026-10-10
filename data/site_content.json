@@ -1,6 +1,6 @@
 {
   "branding": {
-    "siteTitle": "Design Privée by Vikrantt | Premier Wedding Design & Decor Company",
+    "siteTitle": "Design Privéé by Vikrantt | Premier Wedding Design & Decor Company",
     "faviconUrl": "/favicon.png",
     "autoHeightProportional": true,
     "headerLogoUrl": "/assets/images/brand_logo.png",
@@ -12,7 +12,7 @@
     "watermark": {
       "enabled": true,
       "type": "text",
-      "text": "DESIGN PRIVÉE",
+      "text": "DESIGN PRIVÉÉ",
       "customImageUrl": "",
       "opacity": 0.22,
       "position": "bottom-right",
@@ -344,7 +344,7 @@
         "clientName": "Ananya & Rishabh Kapoor",
         "roleOrRelation": "Beachside Celebration in Goa",
         "quote": "The attention to detail in every single floral installation and table setting was nothing short of perfection.",
-        "detailedQuote": "We wanted a contemporary coastal aesthetic that still honored our traditional ceremonies. Design Privée delivered with effortless elegance and precision.",
+        "detailedQuote": "We wanted a contemporary coastal aesthetic that still honored our traditional ceremonies. Design Privéé delivered with effortless elegance and precision.",
         "featured": true
       },
       {
@@ -377,22 +377,22 @@
     "steps": [
       {
         "number": "01",
-        "title": "DISCOVERY & VISION",
+        "title": "Consultation & Vision",
         "description": "We begin with an in-depth creative consultation to understand your personal story, style preferences, venue architecture, and the emotional resonance you desire for your celebration."
       },
       {
         "number": "02",
-        "title": "CONCEPT & CURATION",
+        "title": "Concept & Curation",
         "description": "Our studio crafts comprehensive 3D concept boards, custom color palettes, fabric textures, bespoke floral designs, and lighting schematics tailored uniquely to your celebration."
       },
       {
         "number": "03",
-        "title": "MOCKUPS & REFINEMENT",
+        "title": "Design & Execution",
         "description": "Experience your wedding before the big day through curated mock-up presentations, table-scape styling, linen selections, and detailed spatial layouts reviewed together."
       },
       {
         "number": "04",
-        "title": "FLAWLESS EXECUTION",
+        "title": "Seamless Production",
         "description": "Our dedicated on-site production artisans manage every installation, structural build, floral setup, and styling touch with meticulous precision from dawn to midnight."
       }
     ],

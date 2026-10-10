@@ -110,7 +110,7 @@ export const Footer: React.FC = () => {
             {subscribed ? (
               <div className="p-4 bg-[#8C867B] border border-[#C5B39C] flex items-center space-x-3 text-xs text-[#FAF8F5]">
                 <CheckCircle size={18} className="text-[#C5B39C]" />
-                <span>Thank you for subscribing to Design Privée Insights.</span>
+                <span>Thank you for subscribing to Design Privéé Insights.</span>
               </div>
             ) : (
               <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-3">
@@ -137,7 +137,7 @@ export const Footer: React.FC = () => {
 
         {/* Bottom Bar: Copyright & Back To Top */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-[#78716C] gap-4">
-          <p>© {new Date().getFullYear()} DESIGN PRIVÉE. All Rights Reserved.</p>
+          <p>© {new Date().getFullYear()} DESIGN PRIVÉÉ. All Rights Reserved.</p>
           
           <button
             onClick={scrollToTop}

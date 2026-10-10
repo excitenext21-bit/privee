@@ -54,7 +54,7 @@ export const Logo: React.FC<LogoProps> = ({
     <div className={`inline-block text-center ${className}`}>
       <img
         src={logoSrc}
-        alt={branding?.siteTitle || "DESIGN PRIVÉE BY VIKRANTT"}
+        alt={branding?.siteTitle || "DESIGN PRIVÉÉ BY VIKRANTT"}
         referrerPolicy="no-referrer"
         onError={(e) => {
           const fallback = variant === 'dark' ? brandLogoWhite : brandLogo;

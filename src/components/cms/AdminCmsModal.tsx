@@ -113,7 +113,7 @@ export const AdminCmsModal: React.FC = () => {
             </div>
             <div>
               <span className="text-[10px] uppercase tracking-[0.3em] text-[#C5B39C] font-mono block mb-1">
-                DESIGN PRIVÉE
+                DESIGN PRIVÉÉ
               </span>
               <h2 className="text-xl font-serif text-white font-bold">
                 Admin CMS Portal
@@ -186,7 +186,7 @@ export const AdminCmsModal: React.FC = () => {
           </div>
           <div>
             <h1 className="text-xs sm:text-sm font-serif tracking-widest uppercase font-bold text-white flex items-center gap-1.5 sm:gap-2">
-              <span>DESIGN PRIVÉE</span>
+              <span>DESIGN PRIVÉÉ</span>
               <span className="hidden sm:inline text-[10px] bg-[#C5B39C]/20 text-[#C5B39C] px-2 py-0.5 rounded font-mono font-normal">
                 CMS
               </span>

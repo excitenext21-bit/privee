@@ -468,7 +468,7 @@ export const ContactForm: React.FC = () => {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }
             }}
-            title="Design Privée"
+            title="Design Privéé"
           >
             <div className="h-6 sm:h-8 md:h-10 w-[1px] bg-[#C8C2B8] shrink-0" />
             <Logo className="w-[96px] sm:w-[120px] md:w-[138px] py-0.5 mx-auto" />

@@ -34,7 +34,7 @@ const STORAGE_KEY = LOCAL_STORAGE_KEY;
 
 export const INITIAL_SITE_DATA: SiteData = {
   branding: {
-    siteTitle: 'Design Privée by Vikrantt | Premier Wedding Design & Decor Company',
+    siteTitle: 'Design Privéé by Vikrantt | Premier Wedding Design & Decor Company',
     faviconUrl: '/favicon.png',
     autoHeightProportional: true,
     headerLogoUrl: '',
@@ -46,7 +46,7 @@ export const INITIAL_SITE_DATA: SiteData = {
     watermark: {
       enabled: true,
       type: 'text',
-      text: 'DESIGN PRIVÉE',
+      text: 'DESIGN PRIVÉÉ',
       customImageUrl: '',
       opacity: 0.22,
       position: 'bottom-right',
@@ -484,7 +484,14 @@ function migrateSiteData(raw: any): SiteData {
       copy.process.heading = 'Here from the Very Start, Here for Every Part.';
     }
     if (copy.process.steps) {
+      const titleMap: Record<string, string> = {
+        '01': 'Consultation & Vision',
+        '02': 'Concept & Curation',
+        '03': 'Design & Execution',
+        '04': 'Seamless Production'
+      };
       copy.process.steps = copy.process.steps.map((step: any) => {
+        const mappedTitle = titleMap[step.number] || step.title;
         if (
           (step.number === '02' || step.title?.includes('CONCEPT & CURATION')) &&
           step.description &&
@@ -496,7 +503,10 @@ function migrateSiteData(raw: any): SiteData {
               'Translating feeling into visual form, we develop tailored color palettes, mood textures, lighting plans, and architectural spatial flow in 3D concept.'
           };
         }
-        return step;
+        return {
+          ...step,
+          title: mappedTitle
+        };
       });
     }
     if (copy.process.stepTitleStyle) {
