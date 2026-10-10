@@ -162,6 +162,19 @@ export const Portfolio: React.FC = () => {
                     loading={index < 2 ? 'eager' : 'lazy'}
                     decoding={index < 2 ? 'sync' : 'async'}
                     fetchPriority={index === 0 ? 'high' : 'auto'}
+                    onError={(e) => {
+                      const img = e.currentTarget;
+                      const picture = img.parentElement;
+                      if (picture && picture.tagName.toLowerCase() === 'picture') {
+                        const source = picture.querySelector('source');
+                        if (source) {
+                          source.remove();
+                        }
+                      }
+                      if (img.src !== item.image) {
+                        img.src = item.image;
+                      }
+                    }}
                   />
                 </picture>
                 <WatermarkOverlay />
