@@ -60,6 +60,7 @@ export interface HeroSectionData {
 export interface ApproachSectionData {
   leftImageUrl: string;
   rightImageUrl: string;
+  rightImageGrayscale?: boolean;
   eyebrow: string;
   heading: string;
   subheading: string;

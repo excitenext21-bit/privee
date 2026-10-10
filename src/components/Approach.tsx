@@ -140,7 +140,7 @@ export const Approach: React.FC = () => {
                 key={`approach-right-${rightImageSrc}`}
                 src={rightImageSrc}
                 alt="Fine Art Photography"
-                className="w-full h-full object-cover grayscale contrast-110"
+                className={`w-full h-full object-cover ${approach.rightImageGrayscale ? 'grayscale contrast-110' : ''}`}
                 loading="eager"
               />
               <WatermarkOverlay />

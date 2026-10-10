@@ -96,6 +96,7 @@ export const INITIAL_SITE_DATA: SiteData = {
   approach: {
     leftImageUrl: contactMandapCouple,
     rightImageUrl: approachChandelierBallroom,
+    rightImageGrayscale: false,
     eyebrow: 'OUR APPROACH',
     heading: 'Timeless design with a contemporary\nedge and unwavering flawless execution',
     subheading: '',

@@ -23,10 +23,26 @@
       "showBorder": false
     },
     "navItems": [
-      { "id": "portfolio", "name": "PORTFOLIO", "href": "#portfolio" },
-      { "id": "about", "name": "ABOUT", "href": "#about" },
-      { "id": "services", "name": "SERVICES", "href": "#services" },
-      { "id": "contact", "name": "CONTACT", "href": "#contact" }
+      {
+        "id": "portfolio",
+        "name": "PORTFOLIO",
+        "href": "#portfolio"
+      },
+      {
+        "id": "about",
+        "name": "ABOUT",
+        "href": "#about"
+      },
+      {
+        "id": "services",
+        "name": "SERVICES",
+        "href": "#services"
+      },
+      {
+        "id": "contact",
+        "name": "CONTACT",
+        "href": "#contact"
+      }
     ],
     "navStyle": {
       "fontSize": "12px",
@@ -92,7 +108,8 @@
       "fontColor": "#7A756C",
       "textDecoration": "none",
       "fontStyle": "normal"
-    }
+    },
+    "rightImageGrayscale": false
   },
   "vikrantt": {
     "greeting": "HI, I'M VIKRANTT",
@@ -140,11 +157,36 @@
     "title": "FEATURED IN ESTEEMED PUBLICATIONS",
     "globalGrayscale": true,
     "items": [
-      { "id": "pub-0", "name": "VOGUE WEDDINGS", "isImage": false, "grayscale": true },
-      { "id": "pub-1", "name": "HARPER'S BAZAAR BRIDE", "isImage": false, "grayscale": true },
-      { "id": "pub-2", "name": "WEDDING SUTRA", "isImage": false, "grayscale": true },
-      { "id": "pub-3", "name": "GRAZIA INDIA", "isImage": false, "grayscale": true },
-      { "id": "pub-4", "name": "ARCHITECTURAL DIGEST", "isImage": false, "grayscale": true }
+      {
+        "id": "pub-0",
+        "name": "VOGUE WEDDINGS",
+        "isImage": false,
+        "grayscale": true
+      },
+      {
+        "id": "pub-1",
+        "name": "HARPER'S BAZAAR BRIDE",
+        "isImage": false,
+        "grayscale": true
+      },
+      {
+        "id": "pub-2",
+        "name": "WEDDING SUTRA",
+        "isImage": false,
+        "grayscale": true
+      },
+      {
+        "id": "pub-3",
+        "name": "GRAZIA INDIA",
+        "isImage": false,
+        "grayscale": true
+      },
+      {
+        "id": "pub-4",
+        "name": "ARCHITECTURAL DIGEST",
+        "isImage": false,
+        "grayscale": true
+      }
     ]
   },
   "portfolio": {

@@ -29,10 +29,12 @@ export const SectionEditorApproach: React.FC = () => {
         />
 
         <ImageUploader
-          label="Right Top Image (Fine Art Coastal B&W)"
+          label="Right Top Image (Chandelier Ballroom Decor)"
           value={approach.rightImageUrl}
           onChangeUrl={(url) => updateApproach({ rightImageUrl: url })}
-          showGrayscaleOption={false}
+          grayscale={approach.rightImageGrayscale ?? false}
+          onToggleGrayscale={(val) => updateApproach({ rightImageGrayscale: val })}
+          showGrayscaleOption={true}
         />
       </div>
 
