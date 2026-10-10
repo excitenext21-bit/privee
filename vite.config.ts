@@ -12,8 +12,16 @@ export default defineConfig(() => {
         '@': path.resolve(__dirname, '.'),
       },
     },
+    esbuild: {
+      target: 'esnext',
+    },
+    optimizeDeps: {
+      esbuildOptions: {
+        target: 'esnext',
+      },
+    },
     build: {
-      target: 'es2022',
+      target: 'esnext',
     },
     server: {
       // HMR is disabled in AI Studio via DISABLE_HMR env var.
