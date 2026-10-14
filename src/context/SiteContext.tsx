@@ -74,7 +74,7 @@ export const INITIAL_SITE_DATA: SiteData = {
   },
   hero: {
     mediaType: 'video',
-    videoUrl: 'https://designprivee.com/assets/privee.mp4',
+    videoUrl: '/assets/hero_privee.mp4',
     imageUrl: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=2000',
     category: 'A PREMIER WEDDING DESIGN & DECOR COMPANY',
     title: 'Designing Artful & Impeccably Curated Weddings Reminiscent of Your Dream Event',
@@ -342,6 +342,15 @@ function migrateSiteData(raw: any): SiteData {
 
   if (copy.branding && !copy.branding.faviconUrl) {
     copy.branding.faviconUrl = '/favicon.png';
+  }
+
+  if (copy.hero) {
+    if (!copy.hero.videoUrl || copy.hero.videoUrl.includes('privee.mp4') || copy.hero.videoUrl.includes('JqsBG7BOU3U')) {
+      copy.hero = {
+        ...copy.hero,
+        videoUrl: '/assets/hero_privee.mp4'
+      };
+    }
   }
 
   if (copy.approach) {

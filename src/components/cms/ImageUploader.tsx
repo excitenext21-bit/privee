@@ -87,7 +87,25 @@ export const ImageUploader: React.FC<ImageUploaderProps> = ({
         <div className="md:col-span-4 aspect-video bg-[#F3EFEA] rounded border border-[#DDD8D0] overflow-hidden flex items-center justify-center relative group">
           {mediaValue ? (
             isVideo ? (
-              <video src={mediaValue} className="w-full h-full object-cover" controls muted />
+              (() => {
+                const match = mediaValue.match(/(?:youtube\.com\/(?:shorts\/|watch\?v=|embed\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
+                const ytId = match ? match[1] : null;
+                if (ytId) {
+                  return (
+                    <div className="w-full h-full relative bg-black flex items-center justify-center">
+                      <img
+                        src={`https://i.ytimg.com/vi/${ytId}/hqdefault.jpg`}
+                        alt={label}
+                        className="w-full h-full object-cover"
+                      />
+                      <span className="absolute bottom-1 right-1 bg-black/80 text-white text-[9px] uppercase tracking-wider px-1.5 py-0.5 rounded font-mono">
+                        YouTube Video
+                      </span>
+                    </div>
+                  );
+                }
+                return <video src={mediaValue} className="w-full h-full object-cover" controls muted />;
+              })()
             ) : (
               <img
                 src={mediaValue}
